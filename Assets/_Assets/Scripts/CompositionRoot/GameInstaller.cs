@@ -1,4 +1,5 @@
 using _Assets.Scripts.Services;
+using _Assets.Scripts.Services.Inputs;
 using _Assets.Scripts.Services.StateMachine;
 using VContainer;
 using VContainer.Unity;
@@ -9,6 +10,7 @@ namespace _Assets.Scripts.CompositionRoot
     {
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.Register<InputService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<PlayerFactory>(Lifetime.Singleton);
             
             builder.Register<GameStatesFactory>(Lifetime.Singleton);
