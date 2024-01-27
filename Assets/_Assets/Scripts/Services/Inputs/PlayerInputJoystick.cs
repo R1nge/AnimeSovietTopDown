@@ -10,7 +10,7 @@ namespace _Assets.Scripts.Services.Inputs
 
         private void Update()
         {
-            _inputService.SetInputVector(joystick.Direction);
+            _inputService.SetInputVector(new Vector3(joystick.Direction.x, 0, joystick.Direction.y));
         }
     }
 }
