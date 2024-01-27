@@ -19,6 +19,11 @@ namespace _Assets.Scripts.Ecs
                 _objectResolver.Inject(updateSystem.System);
             }
 
+            foreach (var fixedUpdateSystem in fixedUpdateSystems)
+            {
+                _objectResolver.Inject(fixedUpdateSystem.System);
+            }
+
             foreach (var lateUpdateSystem in lateUpdateSystems)
             {
                 _objectResolver.Inject(lateUpdateSystem.System);
