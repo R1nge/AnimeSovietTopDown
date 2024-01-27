@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5944506210057710976}
+  - component: {fileID: 4307005774684765741}
   - component: {fileID: 2595468654582235612}
   - component: {fileID: 4714979731803213483}
+  - component: {fileID: 4942071676096365323}
   - component: {fileID: 3353520231606331260}
-  - component: {fileID: 4307005774684765741}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -39,6 +40,19 @@ Transform:
   - {fileID: 7775873059623968788}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4307005774684765741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883420190452881410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dca32d9753b4d59b69f5d4dd1720048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 3748424605088027399}
 --- !u!114 &2595468654582235612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +81,20 @@ MonoBehaviour:
     transform: {fileID: 5944506210057710976}
     direction: {x: 0, y: 0, z: 1}
     speed: 5
+--- !u!114 &4942071676096365323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883420190452881410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483f1343dcb8425f8d94e2e787c8052a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    health: 100
 --- !u!114 &3353520231606331260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,19 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6004cc59c2c04afb96c6b6d42dad286c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4307005774684765741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2883420190452881410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dca32d9753b4d59b69f5d4dd1720048, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joystick: {fileID: 3748424605088027399}
 --- !u!1 &3310594300452736222
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5236899541787227291}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.52941614, y: -0.000000026865854, z: 0.0000000167655, w: 0.84836227}
+  m_LocalRotation: {x: 0.52941614, y: -0.000000011353621, z: 0.0000000070851707, w: 0.84836227}
   m_LocalPosition: {x: 0, y: 10.65, z: -5.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

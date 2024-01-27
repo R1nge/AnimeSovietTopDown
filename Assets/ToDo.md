@@ -5,7 +5,8 @@ TODO:
 Health
 Attack
 Enemies
-AI movement
+AI detection (detect range, follow range(?), attack range)
+Movement (Nav mesh)
 
 Auto shooting, shoot the closes in range
 
