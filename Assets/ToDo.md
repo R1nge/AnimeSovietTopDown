@@ -1,14 +1,10 @@
 Anime girl, in a typical post Soviet Union setting
 Shooting hordes of Gopniks
 
-
-
 IMPORTANT:
 If filter is cached it would apply only to entities, which was spawned first and simultaneous
 
 TODO:
-
-
 
 Player controller + state machine
 

@@ -18,10 +18,6 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter
-                .With<EnemyMarkerComponent>()
-                .With<CharacterControllerMovementComponent>()
-                .Build();
             _playerFilter = World.Filter
                 .With<PlayerAttackComponent>()
                 .With<CharacterControllerMovementComponent>()
@@ -31,26 +27,31 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
         public override void OnUpdate(float deltaTime)
         {
+            _enemyFilter = World.Filter
+                .With<EnemyMarkerComponent>()
+                .With<CharacterControllerMovementComponent>()
+                .Build();
+
             var player = _playerFilter.First();
             ref var playerAttackComponent = ref player.GetComponent<PlayerAttackComponent>();
 
-            var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
+            var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController
+                .transform.position;
             var shootPointPosition = playerAttackComponent.shootPoint.position;
 
             Entity closestEnemy = null;
             float closestDistance = float.MaxValue;
 
+            if (playerAttackComponent.currentCoolDown > 0)
+            {
+                playerAttackComponent.currentCoolDown -= Time.deltaTime;
+            }
+
             foreach (var entity in _enemyFilter)
             {
-                if (playerAttackComponent.currentCoolDown > 0)
+                if (playerAttackComponent.currentCoolDown <= 0)
                 {
-                    playerAttackComponent.currentCoolDown -= Time.deltaTime;
-                }
-                else
-                {
-                    playerAttackComponent.currentCoolDown = playerAttackComponent.cooldown;
-
-                    ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
+                    var movement = entity.GetComponent<CharacterControllerMovementComponent>();
 
                     var distance = Vector3.Distance(
                         movement.characterController.transform.position,
@@ -67,16 +68,23 @@ namespace _Assets.Scripts.Ecs.Player.Attack
             }
 
             if (closestEnemy == null)
+            {
+                Debug.LogWarning("Closest enemy is null");
                 return;
-
-            var vectorFromPlayerToEnemy = closestEnemy.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position - playerPosition;
-            vectorFromPlayerToEnemy.y = 0;
+            }
 
             if (closestDistance <= playerAttackComponent.attackRange)
             {
+                var vectorFromPlayerToEnemy =
+                    closestEnemy.GetComponent<CharacterControllerMovementComponent>().characterController.transform
+                        .position - playerPosition;
+                vectorFromPlayerToEnemy.y = 0;
+
                 var projectile = _projectileFactory.Create();
                 projectile.transform.position = shootPointPosition;
                 projectile.transform.forward = vectorFromPlayerToEnemy.normalized;
+
+                playerAttackComponent.currentCoolDown = playerAttackComponent.cooldown;
             }
         }
     }
