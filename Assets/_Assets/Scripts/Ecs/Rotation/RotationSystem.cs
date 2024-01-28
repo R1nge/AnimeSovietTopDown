@@ -2,7 +2,7 @@
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
 
-namespace _Assets.Scripts.Ecs.Enemies.Rotation
+namespace _Assets.Scripts.Ecs.Rotation
 {
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RotationSystem))]
     public class RotationSystem : UpdateSystem
