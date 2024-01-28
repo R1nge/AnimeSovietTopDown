@@ -2,7 +2,7 @@ using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
 
-namespace _Assets.Scripts.Ecs.Movement
+namespace _Assets.Scripts.Ecs.Movement.Characters
 {
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(CharacterControllerMovementSystem), fileName = "MovementSystem")]
     public class CharacterControllerMovementSystem : UpdateSystem

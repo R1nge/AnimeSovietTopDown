@@ -578,6 +578,8 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: 864becd6b6b296945a5a32c8edf56446, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 48b793a6e6171ef4f80c67e51734b815, type: 2}
+  - enabled: 1
+    system: {fileID: 11400000, guid: 730598ae8156720429e97466c667ddbf, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []
   cleanupSystems: []

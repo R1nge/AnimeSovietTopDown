@@ -1,5 +1,6 @@
 ﻿using _Assets.Scripts.Ecs.Damages;
 using _Assets.Scripts.Ecs.Movement;
+using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Player;
 using _Assets.Scripts.Enemies;
 using _Assets.Scripts.Services;
@@ -16,13 +17,11 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
         [Inject] private ProjectileFactory _projectileFactory;
         private Filter _enemyFilter;
         private Filter _playerFilter;
-        private Request<DamageRequest> _damageRequest;
 
         public override void OnAwake()
         {
             _enemyFilter = World.Filter.With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>().Build();
             _playerFilter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
-            _damageRequest = World.GetRequest<DamageRequest>();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -40,13 +39,19 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
 
                 if (distance <= enemy.attackRange)
                 {
-                    movement.direction = Vector3.zero;
-                    
                     enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attacking);
                     
-                    //TODO: spawn a projectile
+                    var enemyPosition = enemy.shootPoint.position;
+                    var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
+                    var vectorFromEnemyToPlayer = playerPosition - enemyPosition;
+                    
+                    //TODO: cool down
                     var projectile = _projectileFactory.Create();
-                    projectile.transform.position = enemy.shootPoint.position;
+                    projectile.transform.position = enemyPosition;
+                    projectile.transform.forward = vectorFromEnemyToPlayer.normalized;
+                   
+                    
+                    movement.direction = Vector3.zero;
                 }
                 else
                 {

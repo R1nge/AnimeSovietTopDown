@@ -2,7 +2,7 @@ using System;
 using Scellecs.Morpeh;
 using UnityEngine;
 
-namespace _Assets.Scripts.Ecs.Movement
+namespace _Assets.Scripts.Ecs.Movement.Characters
 {
     [Serializable]
     public struct CharacterControllerMovementComponent : IComponent

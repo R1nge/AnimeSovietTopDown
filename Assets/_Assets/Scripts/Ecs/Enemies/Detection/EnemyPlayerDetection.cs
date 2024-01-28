@@ -1,4 +1,5 @@
 ﻿using _Assets.Scripts.Ecs.Movement;
+using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Player;
 using _Assets.Scripts.Enemies;
 using UnityEngine;

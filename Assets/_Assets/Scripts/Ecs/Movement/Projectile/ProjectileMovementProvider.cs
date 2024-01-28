@@ -1,17 +1,16 @@
 ﻿using _Assets.Scripts.Ecs.Damages;
 using _Assets.Scripts.Ecs.Healths;
-using _Assets.Scripts.Ecs.Movement;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
 using UnityEngine;
 
-namespace _Assets.Scripts.Services
+namespace _Assets.Scripts.Ecs.Movement.Projectile
 {
-    public class Projectile : MonoProvider<CharacterControllerMovementComponent>
+    public class ProjectileMovementProvider : MonoProvider<ProjectileMovementComponent>
     {
         [SerializeField] private int damage;
         private Request<DamageRequest> _damageRequest;
-        
+
         protected override void Initialize()
         {
             _damageRequest = World.Default.GetRequest<DamageRequest>();
@@ -25,7 +24,7 @@ namespace _Assets.Scripts.Services
                 {
                     Damage = damage,
                     TargetEntityId = healthProvider.Entity.ID
-                });   
+                });
             }
         }
     }

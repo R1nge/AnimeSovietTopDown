@@ -1,12 +1,12 @@
 Anime girl, in a typical post Soviet Union setting
 Shooting hordes of Gopniks
 
-TODO:
 
+TODO:
 
 Player auto shooting, shoot the closest in range
 
-Enemy/Player shoot projectiles
+Player shoot projectiles at enemies
 
 Models
 Animations
@@ -23,3 +23,4 @@ Health Bar (OnPlayerDamageSystem, Inject player UI controller? )
 AI detection (detect range, follow range, attack range)
 Enemy Attack
 ROTATE TOWARDS MOVEMENT DIRECTION
+Enemy shoot projectile at player
