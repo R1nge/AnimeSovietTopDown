@@ -6,13 +6,11 @@ If filter is cached it would apply only to entities, which was spawned first and
 
 TODO:
 
-Player controller + state machine
 Player stats service (Fire rate (cooldown), damage)
 
-Models
+Models (Use VRM importer to import an anime model)
 Animations
 
-Use VRM importer to import an anime model
 
 Enemy Movement (Nav mesh?)
 
@@ -30,3 +28,4 @@ Player shoot projectiles at enemies
 Player shoot the closest in range
 Player projectile ignore player
 Enemies death
+Player controller + state machine
