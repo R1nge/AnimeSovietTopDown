@@ -58,7 +58,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
                     {
                         enemyAttackComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attacking);
                         
-                        var projectile = _projectileFactory.Create();
+                        var projectile = _projectileFactory.Create(ProjectileFactory.ProjectileType.Enemy);
                         projectile.transform.position = shootPointPosition;
                         projectile.transform.forward = vectorFromEnemyToPlayer.normalized;
 

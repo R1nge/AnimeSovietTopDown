@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e18862dd41b4b70bb4f41e6f322fe60, type: 3}
   m_Name: Projectile Config
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4775413618963734358, guid: 514dc2673fa9e9a459428da98e89a6a1, type: 3}
+  playerProjectilePrefab: {fileID: 4775413618963734358, guid: 514dc2673fa9e9a459428da98e89a6a1, type: 3}
+  enemyProjectilePrefab: {fileID: 4775413618963734358, guid: 30123d3bd30f5604eb673368df0d3c70, type: 3}

@@ -80,7 +80,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
                         .position - playerPosition;
                 vectorFromPlayerToEnemy.y = 0;
 
-                var projectile = _projectileFactory.Create();
+                var projectile = _projectileFactory.Create(ProjectileFactory.ProjectileType.Player);
                 projectile.transform.position = shootPointPosition;
                 projectile.transform.forward = vectorFromPlayerToEnemy.normalized;
 

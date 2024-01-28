@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Configs;
+﻿using System;
+using _Assets.Scripts.Configs;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -16,14 +17,23 @@ namespace _Assets.Scripts.Services
             _configProvider = configProvider;
         }
         
-        public GameObject Create()
+        public GameObject Create(ProjectileType projectileType)
         {
-            return _objectResolver.Instantiate(_configProvider.ProjectileConfig.ProjectilePrefab);
+            switch (projectileType)
+            {
+                case ProjectileType.Player:
+                    return _objectResolver.Instantiate(_configProvider.ProjectileConfig.PlayerProjectilePrefab);
+                case ProjectileType.Enemy:
+                    return _objectResolver.Instantiate(_configProvider.ProjectileConfig.EnemyProjectilePrefab);
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(projectileType), projectileType, null);
+            }
         }
 
         public enum ProjectileType
         {
-            
+            Player,
+            Enemy
         } 
     }
 }

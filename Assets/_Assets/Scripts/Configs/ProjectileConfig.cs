@@ -5,7 +5,9 @@ namespace _Assets.Scripts.Configs
     [CreateAssetMenu(fileName = "Projectile Config", menuName = "Configs/Projectile Config")]
     public class ProjectileConfig : ScriptableObject
     {
-        [SerializeField] private GameObject projectilePrefab;
-        public GameObject ProjectilePrefab => projectilePrefab;
+        [SerializeField] private GameObject playerProjectilePrefab;
+        [SerializeField] private GameObject enemyProjectilePrefab;
+        public GameObject PlayerProjectilePrefab => playerProjectilePrefab;
+        public GameObject EnemyProjectilePrefab => enemyProjectilePrefab;
     }
 }
