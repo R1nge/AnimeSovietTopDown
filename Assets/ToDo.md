@@ -6,10 +6,7 @@ If filter is cached it would apply only to entities, which was spawned first and
 
 TODO:
 
-Enemies death
-
 Player controller + state machine
-
 Player stats service (Fire rate (cooldown), damage)
 
 Models
@@ -32,3 +29,4 @@ Enemy shoot projectile at player
 Player shoot projectiles at enemies
 Player shoot the closest in range
 Player projectile ignore player
+Enemies death

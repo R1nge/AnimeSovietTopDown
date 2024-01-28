@@ -30,6 +30,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
             _enemyFilter = World.Filter
                 .With<EnemyMarkerComponent>()
                 .With<CharacterControllerMovementComponent>()
+                .Without<EnemyDeadMarker>()
                 .Build();
 
             var player = _playerFilter.First();
