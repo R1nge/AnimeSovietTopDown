@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    maxHealth: 10000
-    health: 10000
+    maxHealth: 100
+    health: 100
 --- !u!114 &3353520231606331260
 MonoBehaviour:
   m_ObjectHideFlags: 0

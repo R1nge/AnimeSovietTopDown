@@ -9,5 +9,6 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
     {
         public EnemyController enemyController;
         public int attackRange;
+        public int damage;
     }
 }

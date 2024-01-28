@@ -123,12 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &17356564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8886019364644632810, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
+  m_PrefabInstance: {fileID: 1752820070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &17356570 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5547693339880546082, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
   m_PrefabInstance: {fileID: 1752820070}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 17356564}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17f1a1f2b5c944a38cf08ff2e38d57bb, type: 3}
@@ -541,8 +546,8 @@ GameObject:
   m_Component:
   - component: {fileID: 381569679}
   - component: {fileID: 381569678}
-  - component: {fileID: 381569680}
   - component: {fileID: 381569681}
+  - component: {fileID: 381569680}
   m_Layer: 0
   m_Name: '[Installer]'
   m_TagString: Untagged
@@ -599,10 +604,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884cbbd435424fc2a75fc4dcd22fd2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 1
+  order: 2
   initializers: []
   updateSystems:
-  - enabled: 1
+  - enabled: 0
     system: {fileID: 11400000, guid: cc6b7840de7a1404c8d6f4cd6496e704, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 5f4e72526b8719a43a81651acd1f75d7, type: 2}
@@ -625,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884cbbd435424fc2a75fc4dcd22fd2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 2
+  order: 1
   initializers: []
   updateSystems:
   - enabled: 1
@@ -744,12 +749,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &619547651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8886019364644632810, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
+  m_PrefabInstance: {fileID: 150194771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &619547657 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5547693339880546082, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
   m_PrefabInstance: {fileID: 150194771}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 619547651}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17f1a1f2b5c944a38cf08ff2e38d57bb, type: 3}
@@ -835,6 +845,8 @@ MonoBehaviour:
   - {fileID: 381569677}
   - {fileID: 1046417087}
   - {fileID: 32390637}
+  - {fileID: 619547651}
+  - {fileID: 17356564}
 --- !u!4 &1228230902
 Transform:
   m_ObjectHideFlags: 0
@@ -1582,6 +1594,10 @@ PrefabInstance:
     - target: {fileID: 4943574670906711745, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496275171104362536, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
+      propertyPath: serializedData.damage
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5496275171104362536, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: serializedData.attackRange

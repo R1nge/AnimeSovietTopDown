@@ -224,7 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     enemyController: {fileID: 5547693339880546082}
-    attackRange: 5
+    attackRange: 2
+    damage: 1
 --- !u!114 &6401749066393566604
 MonoBehaviour:
   m_ObjectHideFlags: 0
