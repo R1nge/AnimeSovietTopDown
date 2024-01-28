@@ -1,5 +1,6 @@
 ﻿using _Assets.Scripts.Ecs.Movement;
 using _Assets.Scripts.Ecs.Player;
+using _Assets.Scripts.Enemies;
 using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Enemies.Detection
@@ -14,7 +15,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyMarkerComponent>().With<MovementComponent>().Build();
+            _enemyFilter = World.Filter.With<EnemyPlayerDetectionComponent>().With<MovementComponent>().Build();
             _playerFilter = World.Filter.With<PlayerMarkerComponent>().Build();
         }
 
@@ -23,18 +24,21 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
+                var enemy = entity.GetComponent<EnemyPlayerDetectionComponent>();
                 var movement = entity.GetComponent<MovementComponent>();
+
                 var distance = Vector3.Distance(
                     movement.characterController.transform.position,
                     player.GetComponent<MovementComponent>().characterController.transform.position
                 );
-                if (distance <= 10)
+
+                if (distance <= enemy.detectionRange)
                 {
-                    Debug.Log("Detected");
+                    enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chasing);
                 }
                 else
                 {
-                    Debug.Log("Not Detected");
+                    enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Idle);
                 }
             }
         }
