@@ -3,6 +3,7 @@
     public interface IEnemyState
     {
         void Enter();
+        void Update(float deltaTime);
         void Exit();
     }
 }

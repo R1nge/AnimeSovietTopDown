@@ -12,15 +12,20 @@ namespace _Assets.Scripts.Enemies
         
         public EnemyStatesType CurrentStateType => _currentStateType;
 
-        public EnemyStateMachine()
+        public EnemyStateMachine(Animator animator)
         {
             _enemyStates = new Dictionary<EnemyStatesType, IEnemyState>
             {
-                { EnemyStatesType.Idle, new IdleState() },
-                { EnemyStatesType.Roaming, new RoamingState() },
-                { EnemyStatesType.Chasing, new ChasingState() },
-                { EnemyStatesType.Attacking, new AttackState() }
+                { EnemyStatesType.Idle, new IdleState(animator) },
+                { EnemyStatesType.Roaming, new RoamingState(animator) },
+                { EnemyStatesType.Chasing, new ChasingState(animator) },
+                { EnemyStatesType.Attacking, new AttackState(animator) }
             };
+        }
+
+        public void Update(float deltaTime)
+        {
+            _currentState?.Update(deltaTime);
         }
 
         public void SwitchState(EnemyStatesType stateType)
