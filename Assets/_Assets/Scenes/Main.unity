@@ -554,6 +554,8 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: 26762ff494b66bf4b9a8b5edf8fa8107, type: 2}
   - enabled: 1
+    system: {fileID: 11400000, guid: 6d5e26d2e0f1c4b4fb34cbab6d6225a4, type: 2}
+  - enabled: 1
     system: {fileID: 11400000, guid: 2d8f01c995bdbae4b9e6b0c9ba761b2a, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []
@@ -1424,6 +1426,10 @@ PrefabInstance:
     - target: {fileID: 4943574670906711745, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401749066393566604, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
+      propertyPath: serializedData.speed
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8886019364644632810, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: m_Name

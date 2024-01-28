@@ -6,9 +6,6 @@ namespace _Assets.Scripts.Services.Inputs
     {
         public Vector3 InputVector { get; private set; }
 
-        public void SetInputVector(Vector3 inputVector)
-        {
-            InputVector = inputVector;
-        }
+        public void SetInputVector(Vector3 inputVector) => InputVector = inputVector;
     }
 }
