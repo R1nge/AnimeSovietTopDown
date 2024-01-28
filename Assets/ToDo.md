@@ -2,10 +2,9 @@ Anime girl, in a typical post Soviet Union setting
 Shooting hordes of Gopniks
 
 TODO:
-
 Enemies
-Attack
 AI detection (detect range, follow range(?), attack range)
+Attack
 Movement (Nav mesh)
 
 Auto shooting, shoot the closes in range
