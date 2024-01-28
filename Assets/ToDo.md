@@ -3,8 +3,6 @@ Shooting hordes of Gopniks
 
 TODO:
 
-Move using character controller
-
 Health/Damage
 
 Attack
@@ -22,3 +20,4 @@ Animations
 Done:
 Top down camera follow
 Walk with joystick
+Move using character controller
