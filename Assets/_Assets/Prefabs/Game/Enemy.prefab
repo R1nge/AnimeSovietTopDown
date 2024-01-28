@@ -223,8 +223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    maxHealth: 1000
-    health: 1000
+    gameObject: {fileID: 8886019364644632810}
+    maxHealth: 15
+    health: 15
 --- !u!114 &6412301920278199249
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ If filter is cached it would apply only to entities, which was spawned first and
 
 TODO:
 
-Enemies die
+Enemies death
 
 Player controller + state machine
 

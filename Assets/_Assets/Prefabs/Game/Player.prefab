@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
+    gameObject: {fileID: 0}
     maxHealth: 100
     health: 100
 --- !u!114 &4579423714679696318
@@ -618,7 +619,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 3968332635602976558}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 200
