@@ -4,6 +4,8 @@ Shooting hordes of Gopniks
 
 TODO:
 
+Player controller + state machine
+
 Player auto shooting, shoot the closest in range
 Player shoot projectiles at enemies
 

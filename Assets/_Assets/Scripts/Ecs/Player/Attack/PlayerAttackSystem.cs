@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Ecs.Movement.Characters;
+﻿using _Assets.Scripts.Ecs.Enemies;
+using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Rotation;
 using _Assets.Scripts.Services;
 using Scellecs.Morpeh;
@@ -17,14 +18,12 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<CharacterControllerMovementComponent>().Build();
+            _enemyFilter = World.Filter.With<EnemyMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
             _playerFilter = World.Filter.With<PlayerAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            //TODO: if is not in attack state - return
-            
             var player = _playerFilter.First();
             ref var playerAttackComponent = ref player.GetComponent<PlayerAttackComponent>();
             
@@ -63,10 +62,6 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
 
                         movement.direction = Vector3.zero;
-                    }
-                    else
-                    {
-                        //playerAttackComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chasing);
                     }
                 }
             }
