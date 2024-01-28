@@ -1,15 +1,17 @@
-﻿namespace _Assets.Scripts.Enemies.States
+﻿using UnityEngine;
+
+namespace _Assets.Scripts.Enemies.States
 {
     public class AttackState : IEnemyState
     {
         public void Enter()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Enter attack state");
         }
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Exit attack state");
         }
     }
 }

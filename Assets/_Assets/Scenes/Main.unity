@@ -634,6 +634,8 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: 6d5e26d2e0f1c4b4fb34cbab6d6225a4, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 2d8f01c995bdbae4b9e6b0c9ba761b2a, type: 2}
+  - enabled: 1
+    system: {fileID: 11400000, guid: 89d070132d9caf74dbe983545bb2201f, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []
   cleanupSystems: []
@@ -1580,6 +1582,10 @@ PrefabInstance:
     - target: {fileID: 4943574670906711745, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496275171104362536, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
+      propertyPath: serializedData.attackRange
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6401749066393566604, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: serializedData.speed
