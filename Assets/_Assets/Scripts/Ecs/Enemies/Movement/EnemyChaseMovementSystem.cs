@@ -17,7 +17,6 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
 
         public override void OnAwake()
         {
-            _enemy = World.Filter.With<EnemyMarkerComponent>().With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
             _player = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
         }
 
@@ -26,12 +25,14 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
             var player = _player.First();
             var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
             
+            _enemy = World.Filter.With<EnemyMarkerComponent>().With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
+            
             foreach (var entity in _enemy)
             {
                 ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
                 var enemy = entity.GetComponent<EnemyPlayerDetectionComponent>();
 
-                if (enemy.enemyController.EnemyStateMachine.CurrentStateType == EnemyStateMachine.EnemyStatesType.Chasing)
+                if (enemy.enemyController.EnemyStateMachine.CurrentStateType == EnemyStateMachine.EnemyStatesType.Chase)
                 {
                     var enemyPosition = movement.characterController.transform.position;
                     var vectorFromEnemyToPlayer = playerPosition - enemyPosition;

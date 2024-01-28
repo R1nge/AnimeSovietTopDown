@@ -1,5 +1,6 @@
 ﻿using _Assets.Scripts.Ecs.Enemies;
 using _Assets.Scripts.Ecs.Healths;
+using _Assets.Scripts.Ecs.Movement.Characters;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
@@ -25,12 +26,15 @@ namespace _Assets.Scripts.Ecs.Damages.OnDamage
         {
             if (World.TryGetEntity(entityId, out var entity))
             {
-                if (entity.Has<EnemyMarkerComponent>())
+                if (entity.Has<EnemyMarkerComponent>() && !entity.Has<EnemyDeadMarker>())
                 {
                     var healthComponent = entity.GetComponent<HealthComponent>();
                     if (healthComponent.health <= 0)
                     {
-                        healthComponent.Dispose();
+                        entity.GetComponent<CharacterControllerMovementComponent>().direction = Vector3.zero;
+                        entity.AddComponent<EnemyDeadMarker>();
+                        var enemyMarkerComponent = entity.GetComponent<EnemyMarkerComponent>();
+                        enemyMarkerComponent.Dispose();
                     }   
                 }
             }

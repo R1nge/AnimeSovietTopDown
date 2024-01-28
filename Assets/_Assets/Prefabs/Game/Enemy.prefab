@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9e288479de43cdad512aab27faff33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializedData:
+    enemyController: {fileID: 5547693339880546082}
 --- !u!114 &3841969913720582415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    gameObject: {fileID: 8886019364644632810}
     maxHealth: 15
     health: 15
 --- !u!114 &6412301920278199249

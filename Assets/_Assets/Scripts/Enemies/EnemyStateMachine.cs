@@ -17,9 +17,10 @@ namespace _Assets.Scripts.Enemies
             _enemyStates = new Dictionary<EnemyStatesType, IEnemyState>
             {
                 { EnemyStatesType.Idle, new IdleState(animator) },
-                { EnemyStatesType.Roaming, new RoamingState(animator) },
-                { EnemyStatesType.Chasing, new ChasingState(animator) },
-                { EnemyStatesType.Attacking, new AttackState(animator) }
+                { EnemyStatesType.Roam, new RoamingState(animator) },
+                { EnemyStatesType.Chase, new ChasingState(animator) },
+                { EnemyStatesType.Attack, new AttackState(animator) },
+                { EnemyStatesType.Death, new DeathState(animator)}
             };
         }
 
@@ -45,9 +46,10 @@ namespace _Assets.Scripts.Enemies
         public enum EnemyStatesType
         {
             Idle,
-            Roaming,
-            Chasing,
-            Attacking
+            Roam,
+            Chase,
+            Attack,
+            Death
         }
     }
 }

@@ -226,7 +226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    gameObject: {fileID: 0}
     maxHealth: 100
     health: 100
 --- !u!114 &4579423714679696318

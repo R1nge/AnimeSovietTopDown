@@ -35,9 +35,9 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
 
                 if (distance <= enemy.detectionRange)
                 {
-                    if (enemy.enemyController.EnemyStateMachine.CurrentStateType != EnemyStateMachine.EnemyStatesType.Attacking)
+                    if (enemy.enemyController.EnemyStateMachine.CurrentStateType != EnemyStateMachine.EnemyStatesType.Attack)
                     {
-                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chasing);    
+                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chase);    
                     }
                 }
                 else
