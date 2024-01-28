@@ -145,7 +145,8 @@ MonoBehaviour:
     shootPoint: {fileID: 4943574670906711745}
     enemyController: {fileID: 5547693339880546082}
     attackRange: 2
-    damage: 1
+    cooldown: 5
+    currentCoolDown: 5
 --- !u!114 &6401749066393566604
 MonoBehaviour:
   m_ObjectHideFlags: 0

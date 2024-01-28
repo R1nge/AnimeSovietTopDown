@@ -20,8 +20,10 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>().Build();
-            _playerFilter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
+            _enemyFilter = World.Filter.With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>()
+                .Build();
+            _playerFilter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>()
+                .Build();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -29,33 +31,43 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
-                var enemy = entity.GetComponent<EnemyAttackComponent>();
-                ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
-
-                var distance = Vector3.Distance(
-                    movement.characterController.transform.position,
-                    player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
-                );
-
-                if (distance <= enemy.attackRange)
+                ref var enemy = ref entity.GetComponent<EnemyAttackComponent>();
+                
+                if (enemy.currentCoolDown > 0)
                 {
-                    enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attacking);
-                    
-                    var enemyPosition = enemy.shootPoint.position;
-                    var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
-                    var vectorFromEnemyToPlayer = playerPosition - enemyPosition;
-                    
-                    //TODO: cool down
-                    var projectile = _projectileFactory.Create();
-                    projectile.transform.position = enemyPosition;
-                    projectile.transform.forward = vectorFromEnemyToPlayer.normalized;
-                   
-                    
-                    movement.direction = Vector3.zero;
+                    enemy.currentCoolDown -= Time.deltaTime;
                 }
                 else
                 {
-                    enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chasing);
+                    enemy.currentCoolDown = enemy.cooldown;
+
+                    ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
+
+                    var distance = Vector3.Distance(
+                        movement.characterController.transform.position,
+                        player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
+                    );
+
+                    if (distance <= enemy.attackRange)
+                    {
+                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType
+                            .Attacking);
+
+                        var enemyPosition = enemy.shootPoint.position;
+                        var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
+                        var vectorFromEnemyToPlayer = playerPosition - enemyPosition;
+                        
+                        var projectile = _projectileFactory.Create();
+                        projectile.transform.position = enemyPosition;
+                        projectile.transform.forward = vectorFromEnemyToPlayer.normalized;
+
+
+                        movement.direction = Vector3.zero;
+                    }
+                    else
+                    {
+                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chasing);
+                    }
                 }
             }
         }

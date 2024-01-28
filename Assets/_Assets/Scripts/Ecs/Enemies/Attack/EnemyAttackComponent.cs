@@ -11,6 +11,6 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
         public Transform shootPoint;
         public EnemyController enemyController;
         public int attackRange;
-        public int damage;
+        public float cooldown, currentCoolDown;
     }
 }
