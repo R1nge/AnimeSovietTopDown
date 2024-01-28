@@ -9,7 +9,7 @@ namespace _Assets.Scripts.Ecs.Rotation
     public sealed class RotateTowardsMovementDirection : UpdateSystem
     {
         private Filter _filter;
-        
+
         public override void OnAwake()
         {
             _filter = World.Filter.With<RotationComponent>().With<MovementComponent>().Build();
@@ -19,7 +19,14 @@ namespace _Assets.Scripts.Ecs.Rotation
         {
             foreach (var entity in _filter)
             {
-                entity.GetComponent<RotationComponent>().rotation = Quaternion.LookRotation(entity.GetComponent<MovementComponent>().direction);
+                var movementComponent = entity.GetComponent<MovementComponent>();
+                
+                if (movementComponent.direction == Vector3.zero)
+                {
+                    return;
+                }
+
+                entity.GetComponent<RotationComponent>().rotation = Quaternion.LookRotation(movementComponent.direction);
             }
         }
     }
