@@ -14,6 +14,7 @@ namespace _Assets.Scripts.Ecs.Movement.Projectile
         protected override void Initialize()
         {
             _damageRequest = World.Default.GetRequest<DamageRequest>();
+            Destroy(gameObject, 10f);
         }
 
         private void OnCollisionEnter(Collision other)

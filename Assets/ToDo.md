@@ -7,7 +7,7 @@ TODO:
 Player controller + state machine
 
 Player auto shooting, shoot the closest in range
-Player shoot projectiles at enemies
+
 
 Models
 Animations
@@ -26,3 +26,4 @@ AI detection (detect range, follow range, attack range)
 Enemy Attack
 ROTATE TOWARDS MOVEMENT DIRECTION
 Enemy shoot projectile at player
+Player shoot projectiles at enemies
