@@ -2,18 +2,17 @@ Anime girl, in a typical post Soviet Union setting
 Shooting hordes of Gopniks
 
 TODO:
-Enemies
-
-Enemy Movement (Nav mesh?)
-
-Player auto shooting, shoot the closes in range
 
 
+Player auto shooting, shoot the closest in range
+
+Enemy/Player shoot projectiles
 
 Models
 Animations
 
 
+Enemy Movement (Nav mesh?)
 
 Done:
 Top down camera follow
