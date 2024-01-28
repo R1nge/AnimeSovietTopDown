@@ -6,7 +6,9 @@ namespace _Assets.Scripts.Configs
     {
         [SerializeField] private PlayerConfig playerConfig;
         [SerializeField] private ProjectileConfig projectileConfig;
+        [SerializeField] private EnemyConfig enemyConfig;
         public PlayerConfig PlayerConfig => playerConfig;
         public ProjectileConfig ProjectileConfig => projectileConfig;
+        public EnemyConfig EnemyConfig => enemyConfig;
     }
 }

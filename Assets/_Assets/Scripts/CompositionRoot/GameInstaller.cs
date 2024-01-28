@@ -11,6 +11,8 @@ namespace _Assets.Scripts.CompositionRoot
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<InputService>(Lifetime.Singleton);
+
+            builder.Register<EnemyFactory>(Lifetime.Singleton);
             builder.Register<PlayerFactory>(Lifetime.Singleton);
 
             builder.Register<ProjectileFactory>(Lifetime.Singleton);

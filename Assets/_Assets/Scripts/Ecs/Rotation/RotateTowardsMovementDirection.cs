@@ -19,12 +19,13 @@ namespace _Assets.Scripts.Ecs.Rotation
         {
             foreach (var entity in _filter)
             {
-                var  movementComponent = entity.GetComponent<CharacterControllerMovementComponent>();
-                
+                var movementComponent = entity.GetComponent<CharacterControllerMovementComponent>();
+
                 if (movementComponent.direction == Vector3.zero)
                 {
                     return;
                 }
+
                 ref var rotation = ref entity.GetComponent<RotationComponent>();
                 rotation.rotation = Quaternion.LookRotation(movementComponent.direction);
             }

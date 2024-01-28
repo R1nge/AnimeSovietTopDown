@@ -64,3 +64,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: 62f32645d71661642a3f881f0cd64aa5, type: 2}
   projectileConfig: {fileID: 11400000, guid: 16608adf2765d464f82903ef40536ed2, type: 2}
+  enemyConfig: {fileID: 11400000, guid: 905280695a446f3489599cea25728f53, type: 2}

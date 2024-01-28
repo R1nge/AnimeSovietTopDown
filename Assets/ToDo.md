@@ -4,6 +4,8 @@ Shooting hordes of Gopniks
 
 TODO:
 
+If filter is cached it would apply only to entities, which was spawned first and simultaneous
+
 Player controller + state machine
 
 Player auto shooting, shoot the closest in range
