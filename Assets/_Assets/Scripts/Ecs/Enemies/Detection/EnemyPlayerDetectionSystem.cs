@@ -8,8 +8,8 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
 {
     using Scellecs.Morpeh;
 
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyPlayerDetection))]
-    public sealed class EnemyPlayerDetection : Scellecs.Morpeh.Systems.UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyPlayerDetectionSystem))]
+    public sealed class EnemyPlayerDetectionSystem : Scellecs.Morpeh.Systems.UpdateSystem
     {
         private Filter _enemyFilter;
         private Filter _playerFilter;

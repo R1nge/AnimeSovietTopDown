@@ -59,9 +59,6 @@ namespace _Assets.Scripts.Ecs.Player.Attack
                         var projectile = _projectileFactory.Create();
                         projectile.transform.position = shootPointPosition;
                         projectile.transform.forward = vectorFromPlayerToEnemy.normalized;
-
-
-                        movement.direction = Vector3.zero;
                     }
                 }
             }

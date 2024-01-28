@@ -17,7 +17,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
 
         public override void OnAwake()
         {
-            _enemy = World.Filter.With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
+            _enemy = World.Filter.With<EnemyMarkerComponent>().With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
             _player = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
         }
 

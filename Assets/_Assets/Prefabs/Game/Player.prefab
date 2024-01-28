@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     characterController: {fileID: 3264212631529656977}
-    direction: {x: 0, y: 0, z: 1}
+    direction: {x: 0, y: 0, z: 0}
     speed: 5
 --- !u!114 &9075132025181533024
 MonoBehaviour:
@@ -386,7 +386,6 @@ GameObject:
   - component: {fileID: 7884197052845715132}
   - component: {fileID: 878662691748501469}
   - component: {fileID: 3170603500478156071}
-  - component: {fileID: 5238915791044331731}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -459,27 +458,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5238915791044331731
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3857181915074049422}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1.0000001}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3949247114563806945
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5236899541787227291}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.52941614, y: -0.000000011353617, z: 0.000000007085171, w: 0.84836227}
+  m_LocalRotation: {x: 0.52941614, y: -0.000000011361996, z: 0.0000000070904003, w: 0.84836227}
   m_LocalPosition: {x: 0, y: 10.65, z: -5.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

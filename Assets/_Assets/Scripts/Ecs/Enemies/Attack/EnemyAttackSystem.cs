@@ -19,7 +19,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Build();
+            _enemyFilter = World.Filter.With<EnemyMarkerComponent>().With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Build();
             _playerFilter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
         }
 
@@ -51,7 +51,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
 
                     var distance = Vector3.Distance(
                         movement.characterController.transform.position,
-                        player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
+                        playerPosition
                     );
 
                     if (distance <= enemyAttackComponent.attackRange)
