@@ -536,6 +536,8 @@ MonoBehaviour:
   initializers: []
   updateSystems:
   - enabled: 1
+    system: {fileID: 11400000, guid: 26762ff494b66bf4b9a8b5edf8fa8107, type: 2}
+  - enabled: 1
     system: {fileID: 11400000, guid: 2d8f01c995bdbae4b9e6b0c9ba761b2a, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []
