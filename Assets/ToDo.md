@@ -2,13 +2,15 @@ Anime girl, in a typical post Soviet Union setting
 Shooting hordes of Gopniks
 
 
-TODO:
 
+IMPORTANT:
 If filter is cached it would apply only to entities, which was spawned first and simultaneous
 
-Player controller + state machine
+TODO:
 
-Player auto shooting, shoot the closest in range
+
+
+Player controller + state machine
 
 
 Models
@@ -29,3 +31,4 @@ Enemy Attack
 ROTATE TOWARDS MOVEMENT DIRECTION
 Enemy shoot projectile at player
 Player shoot projectiles at enemies
+Player shoot the closest in range

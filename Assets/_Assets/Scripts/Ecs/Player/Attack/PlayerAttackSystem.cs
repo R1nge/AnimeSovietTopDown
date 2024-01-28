@@ -18,27 +18,30 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
-            _playerFilter = World.Filter.With<PlayerAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Build();
+            _enemyFilter = World.Filter
+                .With<EnemyMarkerComponent>()
+                .With<CharacterControllerMovementComponent>()
+                .Build();
+            _playerFilter = World.Filter
+                .With<PlayerAttackComponent>()
+                .With<CharacterControllerMovementComponent>()
+                .With<RotationComponent>()
+                .Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
             var player = _playerFilter.First();
             ref var playerAttackComponent = ref player.GetComponent<PlayerAttackComponent>();
-            
+
             var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
             var shootPointPosition = playerAttackComponent.shootPoint.position;
 
+            Entity closestEnemy = null;
+            float closestDistance = float.MaxValue;
+
             foreach (var entity in _enemyFilter)
             {
-                var enemyPosition = entity.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
-                var vectorFromPlayerToEnemy = enemyPosition - playerPosition;
-                vectorFromPlayerToEnemy.y = 0;
-
-                // ref var playerRotation = ref player.GetComponent<RotationComponent>();
-                // playerRotation.rotation = Quaternion.LookRotation(vectorFromPlayerToEnemy, Vector3.up);
-
                 if (playerAttackComponent.currentCoolDown > 0)
                 {
                     playerAttackComponent.currentCoolDown -= Time.deltaTime;
@@ -51,16 +54,29 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
                     var distance = Vector3.Distance(
                         movement.characterController.transform.position,
-                        player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
+                        player.GetComponent<CharacterControllerMovementComponent>().characterController.transform
+                            .position
                     );
 
-                    if (distance <= playerAttackComponent.attackRange)
+                    if (distance < closestDistance)
                     {
-                        var projectile = _projectileFactory.Create();
-                        projectile.transform.position = shootPointPosition;
-                        projectile.transform.forward = vectorFromPlayerToEnemy.normalized;
+                        closestDistance = distance;
+                        closestEnemy = entity;
                     }
                 }
+            }
+
+            if (closestEnemy == null)
+                return;
+
+            var vectorFromPlayerToEnemy = closestEnemy.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position - playerPosition;
+            vectorFromPlayerToEnemy.y = 0;
+
+            if (closestDistance <= playerAttackComponent.attackRange)
+            {
+                var projectile = _projectileFactory.Create();
+                projectile.transform.position = shootPointPosition;
+                projectile.transform.forward = vectorFromPlayerToEnemy.normalized;
             }
         }
     }
