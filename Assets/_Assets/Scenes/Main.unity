@@ -1557,6 +1557,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3841969913720582415, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
+      propertyPath: serializedData.detectionRange
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4643022868366146179, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: serializedData.enemyController
       value: 
@@ -1607,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5496275171104362536, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: serializedData.attackRange
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6401749066393566604, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
       propertyPath: serializedData.speed

@@ -1,5 +1,6 @@
 ﻿using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Player;
+using _Assets.Scripts.Ecs.Rotation;
 using _Assets.Scripts.Enemies;
 using _Assets.Scripts.Services;
 using Scellecs.Morpeh;
@@ -18,10 +19,8 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>()
-                .Build();
-            _playerFilter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>()
-                .Build();
+            _enemyFilter = World.Filter.With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Build();
+            _playerFilter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -29,15 +28,24 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
-                ref var enemy = ref entity.GetComponent<EnemyAttackComponent>();
+                ref var enemyAttackComponent = ref entity.GetComponent<EnemyAttackComponent>();
                 
-                if (enemy.currentCoolDown > 0)
+                var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
+                var shootPointPosition = enemyAttackComponent.shootPoint.position;
+                var enemyPosition = entity.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
+                var vectorFromEnemyToPlayer = playerPosition - enemyPosition;
+                vectorFromEnemyToPlayer.y = 0;
+                
+                ref var enemyRotation = ref entity.GetComponent<RotationComponent>();
+                enemyRotation.rotation = Quaternion.LookRotation(vectorFromEnemyToPlayer, Vector3.up);
+                
+                if (enemyAttackComponent.currentCoolDown > 0)
                 {
-                    enemy.currentCoolDown -= Time.deltaTime;
+                    enemyAttackComponent.currentCoolDown -= Time.deltaTime;
                 }
                 else
                 {
-                    enemy.currentCoolDown = enemy.cooldown;
+                    enemyAttackComponent.currentCoolDown = enemyAttackComponent.cooldown;
 
                     ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
 
@@ -46,16 +54,12 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
                         player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
                     );
 
-                    if (distance <= enemy.attackRange)
+                    if (distance <= enemyAttackComponent.attackRange)
                     {
-                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attacking);
-
-                        var enemyPosition = enemy.shootPoint.position;
-                        var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
-                        var vectorFromEnemyToPlayer = playerPosition - enemyPosition;
+                        enemyAttackComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attacking);
                         
                         var projectile = _projectileFactory.Create();
-                        projectile.transform.position = enemyPosition;
+                        projectile.transform.position = shootPointPosition;
                         projectile.transform.forward = vectorFromEnemyToPlayer.normalized;
 
 
@@ -63,7 +67,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
                     }
                     else
                     {
-                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chasing);
+                        enemyAttackComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chasing);
                     }
                 }
             }

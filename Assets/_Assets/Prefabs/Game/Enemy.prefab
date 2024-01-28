@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     enemyController: {fileID: 5547693339880546082}
-    detectionRange: 10
+    detectionRange: 15
 --- !u!114 &5496275171104362536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,9 +176,9 @@ MonoBehaviour:
   serializedData:
     shootPoint: {fileID: 4860361181998209240}
     enemyController: {fileID: 5547693339880546082}
-    attackRange: 2
+    attackRange: 5
     cooldown: 5
-    currentCoolDown: 5
+    currentCoolDown: 0
 --- !u!114 &6401749066393566604
 MonoBehaviour:
   m_ObjectHideFlags: 0

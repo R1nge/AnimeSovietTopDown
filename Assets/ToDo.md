@@ -5,7 +5,6 @@ Shooting hordes of Gopniks
 TODO:
 
 Player auto shooting, shoot the closest in range
-
 Player shoot projectiles at enemies
 
 Models
