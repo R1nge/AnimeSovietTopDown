@@ -575,7 +575,7 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: ef8419bb9b3c3144fadd4474972e302e, type: 2}
   - enabled: 1
-    system: {fileID: 11400000, guid: 864becd6b6b296945a5a32c8edf56446, type: 2}
+    system: {fileID: 11400000, guid: 3ee8ef8be2591714abc132303f16d6bd, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 48b793a6e6171ef4f80c67e51734b815, type: 2}
   - enabled: 1
@@ -621,6 +621,8 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: a82e4a11fd984d647ad92fa3e1763789, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 858b72bd1eaf54747abd188852d97cd4, type: 2}
+  - enabled: 1
+    system: {fileID: 11400000, guid: 864becd6b6b296945a5a32c8edf56446, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []
   cleanupSystems: []
@@ -1303,7 +1305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489144434}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5294162, y: 0.000000057663648, z: -0.00000003598471, w: 0.84836227}
+  m_LocalRotation: {x: 0.52941614, y: -0.000000011353621, z: 0.0000000070851707, w: 0.84836227}
   m_LocalPosition: {x: 0, y: 10.65, z: -5.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

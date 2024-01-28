@@ -10,6 +10,7 @@ Player shoot projectiles at enemies
 Models
 Animations
 
+Use VRM importer to import an anime model
 
 Enemy Movement (Nav mesh?)
 
