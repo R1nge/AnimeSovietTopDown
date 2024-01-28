@@ -12,7 +12,7 @@ namespace _Assets.Scripts.Enemies
         
         public EnemyStatesType CurrentStateType => _currentStateType;
 
-        public EnemyStateMachine(Animator animator)
+        public EnemyStateMachine(Animator animator, EnemyDeathController enemyDeathController)
         {
             _enemyStates = new Dictionary<EnemyStatesType, IEnemyState>
             {
@@ -20,7 +20,7 @@ namespace _Assets.Scripts.Enemies
                 { EnemyStatesType.Roam, new RoamingState(animator) },
                 { EnemyStatesType.Chase, new ChasingState(animator) },
                 { EnemyStatesType.Attack, new AttackState(animator) },
-                { EnemyStatesType.Death, new DeathState(animator)}
+                { EnemyStatesType.Death, new DeathState(animator, enemyDeathController)}
             };
         }
 
