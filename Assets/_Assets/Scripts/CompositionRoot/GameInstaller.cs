@@ -12,6 +12,8 @@ namespace _Assets.Scripts.CompositionRoot
         {
             builder.Register<InputService>(Lifetime.Singleton);
             builder.Register<PlayerFactory>(Lifetime.Singleton);
+
+            builder.Register<ProjectileFactory>(Lifetime.Singleton);
             
             builder.Register<GameStatesFactory>(Lifetime.Singleton);
             builder.Register<GameStateMachine>(Lifetime.Singleton);

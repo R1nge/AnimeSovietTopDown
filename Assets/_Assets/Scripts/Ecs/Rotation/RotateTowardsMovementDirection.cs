@@ -12,14 +12,14 @@ namespace _Assets.Scripts.Ecs.Rotation
 
         public override void OnAwake()
         {
-            _filter = World.Filter.With<RotationComponent>().With<MovementComponent>().Build();
+            _filter = World.Filter.With<RotationComponent>().With<CharacterControllerMovementComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
             foreach (var entity in _filter)
             {
-                var movementComponent = entity.GetComponent<MovementComponent>();
+                var movementComponent = entity.GetComponent<CharacterControllerMovementComponent>();
                 
                 if (movementComponent.direction == Vector3.zero)
                 {

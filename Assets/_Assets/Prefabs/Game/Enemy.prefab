@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
+    shootPoint: {fileID: 4943574670906711745}
     enemyController: {fileID: 5547693339880546082}
     attackRange: 2
     damage: 1

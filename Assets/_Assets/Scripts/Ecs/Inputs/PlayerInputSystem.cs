@@ -16,13 +16,13 @@ namespace _Assets.Scripts.Ecs.Inputs
         
         public override void OnAwake()
         {
-            _filter = World.Filter.With<PlayerMarkerComponent>().With<MovementComponent>().Build();
+            _filter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
             var player = _filter.First();
-            player.GetComponent<MovementComponent>().direction = _inputService.InputVector;
+            player.GetComponent<CharacterControllerMovementComponent>().direction = _inputService.InputVector;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyPlayerDetectionComponent>().With<MovementComponent>().Build();
+            _enemyFilter = World.Filter.With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
             _playerFilter = World.Filter.With<PlayerMarkerComponent>().Build();
         }
 
@@ -25,11 +25,11 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
             foreach (var entity in _enemyFilter)
             {
                 var enemy = entity.GetComponent<EnemyPlayerDetectionComponent>();
-                var movement = entity.GetComponent<MovementComponent>();
+                var movement = entity.GetComponent<CharacterControllerMovementComponent>();
 
                 var distance = Vector3.Distance(
                     movement.characterController.transform.position,
-                    player.GetComponent<MovementComponent>().characterController.transform.position
+                    player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
                 );
 
                 if (distance <= enemy.detectionRange)

@@ -4,21 +4,21 @@ using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Movement
 {
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(MovementSystem), fileName = "MovementSystem")]
-    public class MovementSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(CharacterControllerMovementSystem), fileName = "MovementSystem")]
+    public class CharacterControllerMovementSystem : UpdateSystem
     {
         private Filter _movementFilter;
         
         public override void OnAwake()
         {
-            _movementFilter = World.Filter.With<MovementComponent>().Build();
+            _movementFilter = World.Filter.With<CharacterControllerMovementComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
             foreach (var entity in _movementFilter)
             {
-                var movement = entity.GetComponent<MovementComponent>();
+                var movement = entity.GetComponent<CharacterControllerMovementComponent>();
                 movement.characterController.Move(movement.direction * movement.speed * deltaTime);
             }
         }
