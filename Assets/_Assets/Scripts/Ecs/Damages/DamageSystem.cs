@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Damages
 {
-    [CreateAssetMenu(menuName = "ECS/Systems/Damage", fileName = "DamageSystem")]
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(DamageSystem), fileName = "DamageSystem")]
     public class DamageSystem : UpdateSystem
     {
         private Request<DamageRequest> _damageRequest;
@@ -34,7 +34,7 @@ namespace _Assets.Scripts.Ecs.Damages
         {
             if (World.TryGetEntity(target, out var entity))
             {
-                var health = entity.GetComponent<HealthComponent>();
+                ref var health = ref entity.GetComponent<HealthComponent>();
                 health.health -= damage;
             }
         }

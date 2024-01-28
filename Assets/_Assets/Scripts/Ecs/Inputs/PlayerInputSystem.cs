@@ -8,7 +8,7 @@ using VContainer;
 
 namespace _Assets.Scripts.Ecs.Inputs
 {
-    [CreateAssetMenu(menuName = "ECS/Systems/PlayerInput", fileName = "PlayerInputSystem")]
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerInputSystem), fileName = "PlayerInputSystem")]
     public class PlayerInputSystem : UpdateSystem
     {
         [Inject] private InputService _inputService;

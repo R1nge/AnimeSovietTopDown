@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Movement
 {
-    [CreateAssetMenu(menuName = "ECS/Systems/Movement", fileName = "MovementSystem")]
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(MovementSystem), fileName = "MovementSystem")]
     public class MovementSystem : UpdateSystem
     {
         private Filter _movementFilter;
