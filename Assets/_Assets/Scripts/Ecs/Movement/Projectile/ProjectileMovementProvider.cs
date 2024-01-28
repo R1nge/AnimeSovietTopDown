@@ -26,6 +26,8 @@ namespace _Assets.Scripts.Ecs.Movement.Projectile
                     TargetEntityId = healthProvider.Entity.ID
                 });
             }
+            
+            Destroy(gameObject);
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using _Assets.Scripts.Ecs.Damages;
-using _Assets.Scripts.Ecs.Movement;
-using _Assets.Scripts.Ecs.Movement.Characters;
+﻿using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Player;
 using _Assets.Scripts.Enemies;
 using _Assets.Scripts.Services;
@@ -50,8 +48,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
 
                     if (distance <= enemy.attackRange)
                     {
-                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType
-                            .Attacking);
+                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attacking);
 
                         var enemyPosition = enemy.shootPoint.position;
                         var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
