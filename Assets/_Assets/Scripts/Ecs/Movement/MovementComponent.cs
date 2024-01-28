@@ -7,7 +7,7 @@ namespace _Assets.Scripts.Ecs.Movement
     [Serializable]
     public struct MovementComponent : IComponent
     {
-        public Transform transform;
+        public CharacterController characterController;
         public Vector3 direction;
         public float speed;
     }

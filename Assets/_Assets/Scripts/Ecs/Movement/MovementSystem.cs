@@ -19,7 +19,7 @@ namespace _Assets.Scripts.Ecs.Movement
             foreach (var entity in _movementFilter)
             {
                 var movement = entity.GetComponent<MovementComponent>();
-                movement.transform.position += movement.direction * movement.speed * deltaTime;
+                movement.characterController.Move(movement.direction * movement.speed * deltaTime);
             }
         }
     }

@@ -2,7 +2,11 @@ Anime girl, in a typical post Soviet Union setting
 Shooting hordes of Gopniks
 
 TODO:
-Health
+
+Move using character controller
+
+Health/Damage
+
 Attack
 Enemies
 AI detection (detect range, follow range(?), attack range)
