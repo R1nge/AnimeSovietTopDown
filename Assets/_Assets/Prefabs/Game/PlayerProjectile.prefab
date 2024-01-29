@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 1524453150174644349}
   - component: {fileID: 5969765493852091636}
   - component: {fileID: 5643166142595712015}
+  - component: {fileID: 9173270476208118604}
   - component: {fileID: -2589533353628847462}
   m_Layer: 7
   m_Name: PlayerProjectile
@@ -182,6 +183,18 @@ MonoBehaviour:
   serializedData:
     transform: {fileID: 5061402566023793258}
     speed: 5
+--- !u!114 &9173270476208118604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775413618963734358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4182ac40a084193a8fd2eb79b497971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-2589533353628847462
 MonoBehaviour:
   m_ObjectHideFlags: 0
