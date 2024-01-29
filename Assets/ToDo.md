@@ -8,6 +8,7 @@ On build disable logs
 TODO:
 
 
+
 Switch to next wave
 Upgrades between waves
 
@@ -44,3 +45,4 @@ Bullets ignore each other
 Player stats service (Fire rate (cooldown), damage)
 Waves (Enemies prefabs, time before spawn, enemies count)
 Waves spawner
+Player attack system allow to shoot up and down

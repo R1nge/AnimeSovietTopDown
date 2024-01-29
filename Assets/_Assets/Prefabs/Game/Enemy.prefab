@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     enemyController: {fileID: 5547693339880546082}
-    detectionRange: 15
+    detectionRange: 250
 --- !u!114 &5496275171104362536
 MonoBehaviour:
   m_ObjectHideFlags: 0

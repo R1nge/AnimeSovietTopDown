@@ -75,7 +75,6 @@ namespace _Assets.Scripts.Ecs.Player.Attack
             if (closestDistance <= playerAttackComponent.attackRange)
             {
                 var vectorFromPlayerToEnemy = closestEnemy.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position - playerPosition;
-                vectorFromPlayerToEnemy.y = 0;
 
                 var projectile = _projectileFactory.Create(ProjectileFactory.ProjectileType.Player);
                 projectile.transform.position = shootPointPosition;
