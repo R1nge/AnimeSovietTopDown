@@ -308,11 +308,11 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: 5f4e72526b8719a43a81651acd1f75d7, type: 2}
   - enabled: 1
+    system: {fileID: 11400000, guid: b704361a0474db345a328b922f24344c, type: 2}
+  - enabled: 1
     system: {fileID: 11400000, guid: 858b72bd1eaf54747abd188852d97cd4, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 864becd6b6b296945a5a32c8edf56446, type: 2}
-  - enabled: 1
-    system: {fileID: 11400000, guid: b704361a0474db345a328b922f24344c, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []
   cleanupSystems: []

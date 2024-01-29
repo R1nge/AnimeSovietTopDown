@@ -36,8 +36,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
             var player = _playerFilter.First();
             ref var playerAttackComponent = ref player.GetComponent<PlayerAttackComponent>();
 
-            var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController
-                .transform.position;
+            var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
             var shootPointPosition = playerAttackComponent.shootPoint.position;
 
             Entity closestEnemy = null;
@@ -56,8 +55,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
                     var distance = Vector3.Distance(
                         movement.characterController.transform.position,
-                        player.GetComponent<CharacterControllerMovementComponent>().characterController.transform
-                            .position
+                        player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
                     );
 
                     if (distance < closestDistance)
@@ -76,9 +74,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
             if (closestDistance <= playerAttackComponent.attackRange)
             {
-                var vectorFromPlayerToEnemy =
-                    closestEnemy.GetComponent<CharacterControllerMovementComponent>().characterController.transform
-                        .position - playerPosition;
+                var vectorFromPlayerToEnemy = closestEnemy.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position - playerPosition;
                 vectorFromPlayerToEnemy.y = 0;
 
                 var projectile = _projectileFactory.Create(ProjectileFactory.ProjectileType.Player);

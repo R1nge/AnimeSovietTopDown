@@ -10,6 +10,10 @@ TODO:
 
 Player stats service (Fire rate (cooldown), damage)
 
+Enemies:
+Melee (Explode, attack up close, run into the player)
+Range (Different fire rate, projectile size, projectile speed, attack range)
+
 Models (Use VRM importer to import an anime model)
 Animations
 

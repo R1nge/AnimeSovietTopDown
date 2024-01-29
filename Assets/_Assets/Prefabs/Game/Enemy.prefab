@@ -193,8 +193,8 @@ MonoBehaviour:
   serializedData:
     shootPoint: {fileID: 4860361181998209240}
     enemyController: {fileID: 5547693339880546082}
-    attackRange: 5
-    cooldown: 5
+    attackRange: 10
+    cooldown: 1
     currentCoolDown: 0
 --- !u!114 &6401749066393566604
 MonoBehaviour:

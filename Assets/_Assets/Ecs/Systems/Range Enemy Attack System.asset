@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c4c29a832df4fc09d73f99e3881bff9, type: 3}
-  m_Name: Enemy Attack System
+  m_Name: Range Enemy Attack System
   m_EditorClassIdentifier: 

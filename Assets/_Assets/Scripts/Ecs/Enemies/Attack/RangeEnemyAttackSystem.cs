@@ -10,8 +10,8 @@ using VContainer;
 
 namespace _Assets.Scripts.Ecs.Enemies.Attack
 {
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyAttackSystem))]
-    public sealed class EnemyAttackSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RangeEnemyAttackSystem))]
+    public sealed class RangeEnemyAttackSystem : UpdateSystem
     {
         [Inject] private ProjectileFactory _projectileFactory;
         private Filter _enemyFilter;
