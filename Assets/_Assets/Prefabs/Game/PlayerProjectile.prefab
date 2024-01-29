@@ -182,7 +182,6 @@ MonoBehaviour:
   serializedData:
     transform: {fileID: 5061402566023793258}
     speed: 5
-  damage: 1
 --- !u!114 &-2589533353628847462
 MonoBehaviour:
   m_ObjectHideFlags: 0

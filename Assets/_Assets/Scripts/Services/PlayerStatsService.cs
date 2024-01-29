@@ -2,7 +2,7 @@
 {
     public class PlayerStatsService
     {
-        private PlayerStats _playerStats = new(100, 120, 10, 5f, 1f, 5f, 5f);
+        private PlayerStats _playerStats = new(100, 120, 10, 5f, 1f, 10, 5f);
         public PlayerStats PlayerStats => _playerStats;
     }
 
@@ -13,10 +13,10 @@
         public int Damage;
         public float ProjectileSpeed;
         public float ProjectileSize;
-        public float AttackRange;
+        public int AttackRange;
         public float MoveSpeed;
 
-        public PlayerStats(int maxHealth, int fireRate, int damage, float projectileSpeed, float projectileSize, float attackRange, float moveSpeed)
+        public PlayerStats(int maxHealth, int fireRate, int damage, float projectileSpeed, float projectileSize, int attackRange, float moveSpeed)
         {
             MaxHealth = maxHealth;
             FireRate = fireRate;
