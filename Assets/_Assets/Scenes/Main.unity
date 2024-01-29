@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 381569682}
   - component: {fileID: 381569678}
   - component: {fileID: 381569681}
+  - component: {fileID: 381569683}
   - component: {fileID: 381569680}
   m_Layer: 0
   m_Name: '[Installer]'
@@ -374,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884cbbd435424fc2a75fc4dcd22fd2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 3
+  order: 4
   initializers: []
   updateSystems:
   - enabled: 1
@@ -437,6 +438,26 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: 6b355711104688e40ad19f441ae7b7c8, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 564d8a78d83dd3d438155a14ba47f6b7, type: 2}
+  fixedUpdateSystems: []
+  lateUpdateSystems: []
+  cleanupSystems: []
+--- !u!114 &381569683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381569677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884cbbd435424fc2a75fc4dcd22fd2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 3
+  initializers: []
+  updateSystems:
+  - enabled: 1
+    system: {fileID: 11400000, guid: dcc66ca1ff0f2cc45a6c39c50db712a9, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []
   cleanupSystems: []
@@ -874,7 +895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489144434}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.45127904, y: -0.000000013008954, z: 0.0000000065786434, w: 0.8923829}
+  m_LocalRotation: {x: 0.451279, y: 0.000000047865722, z: -0.000000024205747, w: 0.8923829}
   m_LocalPosition: {x: 0, y: 10.65, z: -5.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
