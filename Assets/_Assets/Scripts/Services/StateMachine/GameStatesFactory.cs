@@ -5,17 +5,17 @@ namespace _Assets.Scripts.Services.StateMachine
     public class GameStatesFactory
     {
         private readonly PlayerFactory _playerFactory;
-        private readonly EnemyFactory _enemyFactory;
+        private readonly WaveSpawner _waveSpawner;
 
-        private GameStatesFactory(PlayerFactory playerFactory, EnemyFactory enemyFactory)
+        private GameStatesFactory(PlayerFactory playerFactory, WaveSpawner waveSpawner)
         {
             _playerFactory = playerFactory;
-            _enemyFactory = enemyFactory;
+            _waveSpawner = waveSpawner;
         }
         
         public IGameState CreateGameState(GameStateMachine stateMachine)
         {
-            return new GameState(stateMachine, _playerFactory, _enemyFactory);
+            return new GameState(stateMachine, _playerFactory, _waveSpawner);
         }
     }
 }

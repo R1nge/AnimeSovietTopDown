@@ -11,10 +11,12 @@ namespace _Assets.Scripts.CompositionRoot
     public class GameInstaller : LifetimeScope
     {
         [SerializeField] private EnemyWavesService enemyWavesService;
+        [SerializeField] private WaveSpawner waveSpawner;
 
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(enemyWavesService);
+            builder.RegisterComponent(waveSpawner);
             
             builder.Register<InputService>(Lifetime.Singleton);
 

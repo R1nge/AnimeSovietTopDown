@@ -7,7 +7,7 @@ If filter is cached it would apply only to entities, which was spawned first and
 TODO:
 
 
-Waves (Enemies prefabs, time before spawn, enemies count)
+
 Upgrades between waves
 
 Shop
@@ -41,3 +41,5 @@ Enemies death
 Player controller + state machine
 Bullets ignore each other
 Player stats service (Fire rate (cooldown), damage)
+Waves (Enemies prefabs, time before spawn, enemies count)
+Waves spawner

@@ -6,19 +6,19 @@ namespace _Assets.Scripts.Services.StateMachine.States
     {
         private readonly GameStateMachine _stateMachine;
         private readonly PlayerFactory _playerFactory;
-        private readonly EnemyFactory _enemyFactory;
+        private readonly WaveSpawner _waveSpawner;
 
-        public GameState(GameStateMachine stateMachine, PlayerFactory playerFactory, EnemyFactory enemyFactory)
+        public GameState(GameStateMachine stateMachine, PlayerFactory playerFactory, WaveSpawner waveSpawner)
         {
             _stateMachine = stateMachine;
             _playerFactory = playerFactory;
-            _enemyFactory = enemyFactory;
+            _waveSpawner = waveSpawner;
         }
 
         public void Enter()
         {
             var player = _playerFactory.Create();
-            var enemy = _enemyFactory.Create();
+            _waveSpawner.Spawn();
         }
 
         public void Exit() { }
