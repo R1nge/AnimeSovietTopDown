@@ -8,7 +8,18 @@ namespace _Assets.Scripts.Ecs.Movement.Projectile
 {
     public class ProjectileMovementProvider : MonoProvider<ProjectileMovementComponent>
     {
-        [SerializeField] private int damage;
+        public void SetDamage(int damage)
+        {
+            if (damage <= 0)
+            {
+                Debug.LogError("Trying to set damage to zero or less");
+                return;
+            }
+
+            _damage = damage;
+        }
+
+        private int _damage;
         private Request<DamageRequest> _damageRequest;
 
         protected override void Initialize()
@@ -23,11 +34,11 @@ namespace _Assets.Scripts.Ecs.Movement.Projectile
             {
                 _damageRequest.Publish(new DamageRequest
                 {
-                    Damage = damage,
+                    Damage = _damage,
                     TargetEntityId = healthProvider.Entity.ID
                 });
             }
-            
+
             Destroy(gameObject);
         }
     }

@@ -3,11 +3,12 @@ Shooting hordes of Gopniks
 
 IMPORTANT:
 If filter is cached it would apply only to entities, which was spawned first and simultaneous
+On build disable logs
 
 TODO:
 
 
-
+Switch to next wave
 Upgrades between waves
 
 Shop

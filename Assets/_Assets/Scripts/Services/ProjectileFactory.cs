@@ -1,5 +1,6 @@
 ﻿using System;
 using _Assets.Scripts.Configs;
+using _Assets.Scripts.Ecs.Movement.Projectile;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -10,19 +11,23 @@ namespace _Assets.Scripts.Services
     {
         private readonly IObjectResolver _objectResolver;
         private readonly ConfigProvider _configProvider;
+        private readonly PlayerStatsService _playerStatsService;
         
-        private ProjectileFactory(IObjectResolver objectResolver, ConfigProvider configProvider)
+        private ProjectileFactory(IObjectResolver objectResolver, ConfigProvider configProvider, PlayerStatsService playerStatsService)
         {
             _objectResolver = objectResolver;
             _configProvider = configProvider;
+            _playerStatsService = playerStatsService;
         }
         
-        public GameObject Create(ProjectileType projectileType)
+        public ProjectileMovementProvider Create(ProjectileType projectileType)
         {
             switch (projectileType)
             {
                 case ProjectileType.Player:
-                    return _objectResolver.Instantiate(_configProvider.ProjectileConfig.PlayerProjectilePrefab);
+                    var projectile = _objectResolver.Instantiate(_configProvider.ProjectileConfig.PlayerProjectilePrefab);
+                    projectile.SetDamage(_playerStatsService.PlayerStats.Damage);
+                    return projectile;
                 case ProjectileType.Enemy:
                     return _objectResolver.Instantiate(_configProvider.ProjectileConfig.EnemyProjectilePrefab);
                 default:

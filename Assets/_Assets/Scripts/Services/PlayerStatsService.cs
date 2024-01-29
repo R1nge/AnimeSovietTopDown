@@ -2,7 +2,7 @@
 {
     public class PlayerStatsService
     {
-        private PlayerStats _playerStats = new(100, 120, 1, 5f, 1f, 5f, 5f);
+        private PlayerStats _playerStats = new(100, 120, 10, 5f, 1f, 5f, 5f);
         public PlayerStats PlayerStats => _playerStats;
     }
 
