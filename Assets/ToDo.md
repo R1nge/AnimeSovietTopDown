@@ -8,7 +8,7 @@ TODO:
 
 
 
-Player stats service (Fire rate (cooldown), damage)
+
 
 Enemies:
 Melee (Explode, attack up close, run into the player)
@@ -36,3 +36,4 @@ Player projectile ignore player
 Enemies death
 Player controller + state machine
 Bullets ignore each other
+Player stats service (Fire rate (cooldown), damage)

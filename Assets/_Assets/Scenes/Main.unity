@@ -265,6 +265,8 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: d4eb1e57bb008c24bbae0d47a979fc4c, type: 2}
   - enabled: 1
+    system: {fileID: 11400000, guid: d5a2c7dddae0a6448a18c8dbe10814ca, type: 2}
+  - enabled: 1
     system: {fileID: 11400000, guid: ef8419bb9b3c3144fadd4474972e302e, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 3ee8ef8be2591714abc132303f16d6bd, type: 2}

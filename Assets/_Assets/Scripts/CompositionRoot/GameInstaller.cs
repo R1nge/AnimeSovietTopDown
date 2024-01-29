@@ -13,6 +13,8 @@ namespace _Assets.Scripts.CompositionRoot
             builder.Register<InputService>(Lifetime.Singleton);
 
             builder.Register<EnemyFactory>(Lifetime.Singleton);
+
+            builder.Register<PlayerStatsService>(Lifetime.Singleton);
             builder.Register<PlayerFactory>(Lifetime.Singleton);
 
             builder.Register<ProjectileFactory>(Lifetime.Singleton);
