@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 258326120155292669}
   - component: {fileID: 8454830879531082906}
   - component: {fileID: 566776022736100487}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5969765493852091636}
   - component: {fileID: 5643166142595712015}
   - component: {fileID: -2589533353628847462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
