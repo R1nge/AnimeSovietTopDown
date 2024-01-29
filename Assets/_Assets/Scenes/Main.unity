@@ -435,6 +435,8 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: 0408270ead7c03044950e1762faca1f4, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 6b355711104688e40ad19f441ae7b7c8, type: 2}
+  - enabled: 1
+    system: {fileID: 11400000, guid: 564d8a78d83dd3d438155a14ba47f6b7, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []
   cleanupSystems: []
