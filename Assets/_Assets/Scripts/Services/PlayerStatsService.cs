@@ -9,17 +9,17 @@
     public struct PlayerStats
     {
         public int MaxHealth;
-        public int FireRate;
+        public int FireRatePerMinute;
         public int Damage;
         public float ProjectileSpeed;
         public float ProjectileSize;
         public int AttackRange;
         public float MoveSpeed;
 
-        public PlayerStats(int maxHealth, int fireRate, int damage, float projectileSpeed, float projectileSize, int attackRange, float moveSpeed)
+        public PlayerStats(int maxHealth, int fireRatePerMinute, int damage, float projectileSpeed, float projectileSize, int attackRange, float moveSpeed)
         {
             MaxHealth = maxHealth;
-            FireRate = fireRate;
+            FireRatePerMinute = fireRatePerMinute;
             Damage = damage;
             ProjectileSpeed = projectileSpeed;
             ProjectileSize = projectileSize;

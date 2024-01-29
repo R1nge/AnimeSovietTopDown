@@ -20,7 +20,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
         public override void OnUpdate(float deltaTime)
         {
             var player = _filter.First();
-            player.GetComponent<PlayerAttackComponent>().cooldown = 1f / _playerStatsService.PlayerStats.FireRate;
+            player.GetComponent<PlayerAttackComponent>().cooldown = 60f / _playerStatsService.PlayerStats.FireRatePerMinute;
         }
     }
 }
