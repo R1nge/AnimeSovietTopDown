@@ -18,12 +18,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
         public void Enter()
         {
             var player = _playerFactory.Create();
-
-            for (int i = 0; i < 10; i++)
-            {
-                var enemy = _enemyFactory.Create();
-                enemy.transform.position = new Vector3(0, 0, (i + 1) * 10);    
-            }
+            var enemy = _enemyFactory.Create();
         }
 
         public void Exit() { }

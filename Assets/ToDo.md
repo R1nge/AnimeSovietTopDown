@@ -7,7 +7,7 @@ If filter is cached it would apply only to entities, which was spawned first and
 TODO:
 
 
-Waves
+Waves (Enemies prefabs, time before spawn, enemies count)
 Upgrades between waves
 
 Shop
