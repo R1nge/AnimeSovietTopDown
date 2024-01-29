@@ -7,7 +7,11 @@ If filter is cached it would apply only to entities, which was spawned first and
 TODO:
 
 
+Waves
+Upgrades between waves
 
+Shop
+Skins
 
 
 Enemies:
