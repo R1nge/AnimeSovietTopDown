@@ -142,6 +142,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     enemyController: {fileID: 5547693339880546082}
+    baseEnemyStats:
+      maxHealth: 100
+      speed: 4
+      damage: 1
+      detectRange: 500
+      attackRange: 10
 --- !u!114 &3841969913720582415
 MonoBehaviour:
   m_ObjectHideFlags: 0

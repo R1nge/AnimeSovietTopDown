@@ -26,14 +26,14 @@ namespace _Assets.Scripts.Ecs.Damages.OnDamage
         {
             if (World.TryGetEntity(entityId, out var entity))
             {
-                if (entity.Has<EnemyMarkerComponent>() && !entity.Has<EnemyDeadMarker>())
+                if (entity.Has<RangeEnemyComponent>() && !entity.Has<EnemyDeadMarker>())
                 {
                     var healthComponent = entity.GetComponent<HealthComponent>();
                     if (healthComponent.health <= 0)
                     {
                         entity.GetComponent<CharacterControllerMovementComponent>().direction = Vector3.zero;
                         entity.AddComponent<EnemyDeadMarker>();
-                        var enemyMarkerComponent = entity.GetComponent<EnemyMarkerComponent>();
+                        var enemyMarkerComponent = entity.GetComponent<RangeEnemyComponent>();
                         enemyMarkerComponent.Dispose();
                     }   
                 }

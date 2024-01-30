@@ -25,7 +25,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
             var player = _player.First();
             var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
             
-            _enemy = World.Filter.With<EnemyMarkerComponent>().With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
+            _enemy = World.Filter.With<RangeEnemyComponent>().With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
             
             foreach (var entity in _enemy)
             {

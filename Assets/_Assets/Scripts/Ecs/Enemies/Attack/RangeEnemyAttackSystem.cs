@@ -25,7 +25,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
         public override void OnUpdate(float deltaTime)
         {
             
-            _enemyFilter = World.Filter.With<EnemyMarkerComponent>().With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
+            _enemyFilter = World.Filter.With<RangeEnemyComponent>().With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
             
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)

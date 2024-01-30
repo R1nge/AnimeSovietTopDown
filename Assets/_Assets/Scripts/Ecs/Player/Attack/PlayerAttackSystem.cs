@@ -28,7 +28,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
         public override void OnUpdate(float deltaTime)
         {
             _enemyFilter = World.Filter
-                .With<EnemyMarkerComponent>()
+                .With<RangeEnemyComponent>()
                 .With<CharacterControllerMovementComponent>()
                 .Without<EnemyDeadMarker>()
                 .Build();

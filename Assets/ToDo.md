@@ -7,16 +7,18 @@ On build disable logs
 
 TODO:
 
-
-
 Switch to next wave
 Upgrades between waves
+Collect bottles of vodka to heal
 
 Shop
 Skins
 
 
 Enemies:
+Enemy stats (Base stats: health, speed, attack range, damage;)
+Each enemy component would have 'Base stats' and type specific; like timings and stuff
+
 Melee (Explode, attack up close, run into the player)
 Range (Different fire rate, projectile size, projectile speed, attack range)
 
@@ -46,3 +48,4 @@ Player stats service (Fire rate (cooldown), damage)
 Waves (Enemies prefabs, time before spawn, enemies count)
 Waves spawner
 Player attack system allow to shoot up and down
+Enemy running animation
