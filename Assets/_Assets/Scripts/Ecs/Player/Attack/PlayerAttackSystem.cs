@@ -1,4 +1,5 @@
 ﻿using _Assets.Scripts.Ecs.Enemies;
+using _Assets.Scripts.Ecs.Enemies.Attack;
 using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Rotation;
 using _Assets.Scripts.Services;
@@ -28,7 +29,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
         public override void OnUpdate(float deltaTime)
         {
             _enemyFilter = World.Filter
-                .With<RangeEnemyComponent>()
+                .With<RangeEnemyAttackComponent>()
                 .With<CharacterControllerMovementComponent>()
                 .Without<EnemyDeadMarker>()
                 .Build();

@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Ecs.Movement.Characters;
+﻿using _Assets.Scripts.Ecs.Enemies.Attack;
+using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Enemies;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
@@ -15,12 +16,12 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
 
         public override void OnUpdate(float deltaTime)
         {
-            _enemy = World.Filter.With<RangeEnemyComponent>().With<RangeEnemyComponent>().With<CharacterControllerMovementComponent>().Build();
+            _enemy = World.Filter.With<RangeEnemyAttackComponent>().With<RangeEnemyAttackComponent>().With<CharacterControllerMovementComponent>().Build();
             
             foreach (var entity in _enemy)
             {
                 ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
-                var enemy = entity.GetComponent<RangeEnemyComponent>();
+                var enemy = entity.GetComponent<RangeEnemyAttackComponent>();
 
                 if (enemy.enemyController.EnemyStateMachine.CurrentStateType == EnemyStateMachine.EnemyStatesType.Idle)
                 {

@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Ecs.Enemies.Detection;
+﻿using _Assets.Scripts.Ecs.Enemies.Attack;
+using _Assets.Scripts.Ecs.Enemies.Detection;
 using _Assets.Scripts.Ecs.Movement;
 using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Player;
@@ -25,12 +26,12 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
             var player = _player.First();
             var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
             
-            _enemy = World.Filter.With<RangeEnemyComponent>().With<RangeEnemyComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
+            _enemy = World.Filter.With<RangeEnemyAttackComponent>().With<RangeEnemyAttackComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
             
             foreach (var entity in _enemy)
             {
                 ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
-                var enemy = entity.GetComponent<RangeEnemyComponent>();
+                var enemy = entity.GetComponent<RangeEnemyAttackComponent>();
 
                 if (enemy.enemyController.EnemyStateMachine.CurrentStateType == EnemyStateMachine.EnemyStatesType.Chase)
                 {

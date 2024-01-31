@@ -25,12 +25,12 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
         public override void OnUpdate(float deltaTime)
         {
             
-            _enemyFilter = World.Filter.With<RangeEnemyComponent>().With<RangeEnemyComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
+            _enemyFilter = World.Filter.With<RangeEnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
             
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
-                ref var rangeEnemyComponent = ref entity.GetComponent<RangeEnemyComponent>();
+                ref var rangeEnemyComponent = ref entity.GetComponent<RangeEnemyAttackComponent>();
 
                 var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
                 var shootPointPosition = rangeEnemyComponent.shootPoint.position;
@@ -41,13 +41,13 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
                 ref var enemyRotation = ref entity.GetComponent<RotationComponent>();
                 enemyRotation.rotation = Quaternion.LookRotation(vectorFromEnemyToPlayer, Vector3.up);
 
-                if (rangeEnemyComponent.rangeEnemyStats.currentCooldown > 0)
+                if (rangeEnemyComponent.cooldown > 0)
                 {
-                    rangeEnemyComponent.rangeEnemyStats.currentCooldown -= Time.deltaTime;
+                    rangeEnemyComponent.cooldown -= Time.deltaTime;
                 }
                 else
                 {
-                    rangeEnemyComponent.rangeEnemyStats.currentCooldown = rangeEnemyComponent.rangeEnemyStats.maxCooldown;
+                    rangeEnemyComponent.cooldown = rangeEnemyComponent.maxCooldown;
 
                     ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
 
@@ -56,14 +56,14 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
                         playerPosition
                     );
 
-                    if (distance <= rangeEnemyComponent.baseEnemyStats.attackRange)
+                    if (distance <= rangeEnemyComponent.attackRange)
                     {
                         rangeEnemyComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attack);
 
                         var projectile = _projectileFactory.Create(ProjectileFactory.ProjectileType.Enemy);
                         projectile.transform.position = shootPointPosition;
                         projectile.transform.forward = vectorFromEnemyToPlayer.normalized;
-                        projectile.SetDamage(rangeEnemyComponent.baseEnemyStats.damage);
+                        projectile.SetDamage(rangeEnemyComponent.damage);
 
                         movement.direction = Vector3.zero;
                     }

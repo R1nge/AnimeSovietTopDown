@@ -7,16 +7,15 @@ using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Enemies.Detection
 {
-    //This logic is the same across all enemies, create a base enemy component and use it.
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RangeEnemyPlayerDetectionSystem))]
-    public sealed class RangeEnemyPlayerDetectionSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyPlayerDetectionSystem))]
+    public sealed class EnemyPlayerDetectionSystem : UpdateSystem
     {
         private Filter _enemyFilter;
         private Filter _playerFilter;
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<RangeEnemyComponent>().With<CharacterControllerMovementComponent>().Build();
+            _enemyFilter = World.Filter.With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
             _playerFilter = World.Filter.With<PlayerMarkerComponent>().Build();
         }
 
@@ -25,7 +24,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
-                var enemy = entity.GetComponent<RangeEnemyComponent>();
+                var enemy = entity.GetComponent<EnemyPlayerDetectionComponent>();
                 var movement = entity.GetComponent<CharacterControllerMovementComponent>();
 
                 var distance = Vector3.Distance(
@@ -33,7 +32,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
                     player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
                 );
 
-                if (distance <= enemy.baseEnemyStats.detectRange)
+                if (distance <= enemy.detectRange)
                 {
                     if (enemy.enemyController.EnemyStateMachine.CurrentStateType != EnemyStateMachine.EnemyStatesType.Attack)
                     {

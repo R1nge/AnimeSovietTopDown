@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 6714486007046409536}
   - component: {fileID: 5547693339880546082}
   - component: {fileID: 2979396768268945740}
-  - component: {fileID: 4643022868366146179}
+  - component: {fileID: 5374382189318388411}
+  - component: {fileID: 7643549971886559215}
   - component: {fileID: 6401749066393566604}
   - component: {fileID: 7855499869807777508}
   - component: {fileID: 1865518874240755861}
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 6714486007046409536}
---- !u!114 &4643022868366146179
+--- !u!114 &5374382189318388411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,23 +136,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 8886019364644632810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff9e288479de43cdad512aab27faff33, type: 3}
+  m_Script: {fileID: 11500000, guid: e84cc394cdc84f738fa62c9b45475554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
+    enemyController: {fileID: 5547693339880546082}
+    detectRange: 50
+--- !u!114 &7643549971886559215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886019364644632810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9819ecf4474a4c82b9496989e276351c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    cooldown: 0
+    maxCooldown: 1
+    attackRange: 15
+    damage: 5
     shootPoint: {fileID: 4860361181998209240}
     enemyController: {fileID: 5547693339880546082}
-    baseEnemyStats:
-      maxHealth: 100
-      speed: 4
-      damage: 1
-      detectRange: 500
-      attackRange: 10
-    rangeEnemyStats:
-      projectileSpeed: 10
-      projectileSize: 1
-      maxCooldown: 1
-      currentCooldown: 0
 --- !u!114 &6401749066393566604
 MonoBehaviour:
   m_ObjectHideFlags: 0
