@@ -11,4 +11,12 @@ namespace _Assets.Scripts.Services.Enemies.Stats
         public float detectRange;
         public float attackRange;
     }
+
+    [Serializable]
+    public struct RangeEnemyStats
+    {
+        public float projectileSpeed;
+        public float projectileSize;
+        public float maxCooldown, currentCooldown;
+    }
 }

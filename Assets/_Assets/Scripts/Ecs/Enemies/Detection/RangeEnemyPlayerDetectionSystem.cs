@@ -1,22 +1,22 @@
-﻿using _Assets.Scripts.Ecs.Movement;
-using _Assets.Scripts.Ecs.Movement.Characters;
+﻿using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Player;
 using _Assets.Scripts.Enemies;
+using Scellecs.Morpeh;
+using Scellecs.Morpeh.Systems;
 using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Enemies.Detection
 {
-    using Scellecs.Morpeh;
-
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyPlayerDetectionSystem))]
-    public sealed class EnemyPlayerDetectionSystem : Scellecs.Morpeh.Systems.UpdateSystem
+    //This logic is the same across all enemies, create a base enemy component and use it.
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RangeEnemyPlayerDetectionSystem))]
+    public sealed class RangeEnemyPlayerDetectionSystem : UpdateSystem
     {
         private Filter _enemyFilter;
         private Filter _playerFilter;
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
+            _enemyFilter = World.Filter.With<RangeEnemyComponent>().With<CharacterControllerMovementComponent>().Build();
             _playerFilter = World.Filter.With<PlayerMarkerComponent>().Build();
         }
 
@@ -25,7 +25,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
-                var enemy = entity.GetComponent<EnemyPlayerDetectionComponent>();
+                var enemy = entity.GetComponent<RangeEnemyComponent>();
                 var movement = entity.GetComponent<CharacterControllerMovementComponent>();
 
                 var distance = Vector3.Distance(
@@ -33,7 +33,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
                     player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
                 );
 
-                if (distance <= enemy.detectionRange)
+                if (distance <= enemy.baseEnemyStats.detectRange)
                 {
                     if (enemy.enemyController.EnemyStateMachine.CurrentStateType != EnemyStateMachine.EnemyStatesType.Attack)
                     {

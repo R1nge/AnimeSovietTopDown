@@ -2,7 +2,7 @@
 
 namespace _Assets.Scripts.Ecs.Enemies
 {
-    public class EnemyProvider : MonoProvider<RangeEnemyComponent>
+    public class RangeEnemyProvider : MonoProvider<RangeEnemyComponent>
     {
     }
 }

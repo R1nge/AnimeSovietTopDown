@@ -25,15 +25,15 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
         public override void OnUpdate(float deltaTime)
         {
             
-            _enemyFilter = World.Filter.With<RangeEnemyComponent>().With<EnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
+            _enemyFilter = World.Filter.With<RangeEnemyComponent>().With<RangeEnemyComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
             
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
-                ref var enemyAttackComponent = ref entity.GetComponent<EnemyAttackComponent>();
+                ref var rangeEnemyComponent = ref entity.GetComponent<RangeEnemyComponent>();
 
                 var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
-                var shootPointPosition = enemyAttackComponent.shootPoint.position;
+                var shootPointPosition = rangeEnemyComponent.shootPoint.position;
                 var enemyPosition = entity.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
                 var vectorFromEnemyToPlayer = playerPosition - enemyPosition;
                 vectorFromEnemyToPlayer.y = 0;
@@ -41,13 +41,13 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
                 ref var enemyRotation = ref entity.GetComponent<RotationComponent>();
                 enemyRotation.rotation = Quaternion.LookRotation(vectorFromEnemyToPlayer, Vector3.up);
 
-                if (enemyAttackComponent.currentCoolDown > 0)
+                if (rangeEnemyComponent.rangeEnemyStats.currentCooldown > 0)
                 {
-                    enemyAttackComponent.currentCoolDown -= Time.deltaTime;
+                    rangeEnemyComponent.rangeEnemyStats.currentCooldown -= Time.deltaTime;
                 }
                 else
                 {
-                    enemyAttackComponent.currentCoolDown = enemyAttackComponent.cooldown;
+                    rangeEnemyComponent.rangeEnemyStats.currentCooldown = rangeEnemyComponent.rangeEnemyStats.maxCooldown;
 
                     ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
 
@@ -56,19 +56,20 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
                         playerPosition
                     );
 
-                    if (distance <= enemyAttackComponent.attackRange)
+                    if (distance <= rangeEnemyComponent.baseEnemyStats.attackRange)
                     {
-                        enemyAttackComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attack);
+                        rangeEnemyComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attack);
 
                         var projectile = _projectileFactory.Create(ProjectileFactory.ProjectileType.Enemy);
                         projectile.transform.position = shootPointPosition;
                         projectile.transform.forward = vectorFromEnemyToPlayer.normalized;
+                        projectile.SetDamage(rangeEnemyComponent.baseEnemyStats.damage);
 
                         movement.direction = Vector3.zero;
                     }
                     else
                     {
-                        enemyAttackComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chase);
+                        rangeEnemyComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chase);
                     }
                 }
             }

@@ -9,8 +9,8 @@ using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Enemies.Movement
 {
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyChaseMovementSystem))]
-    public sealed class EnemyChaseMovementSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RangedEnemyChaseMovementSystem))]
+    public sealed class RangedEnemyChaseMovementSystem : UpdateSystem
     {
         private Filter _enemy;
         private Filter _player;
@@ -25,12 +25,12 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
             var player = _player.First();
             var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
             
-            _enemy = World.Filter.With<RangeEnemyComponent>().With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
+            _enemy = World.Filter.With<RangeEnemyComponent>().With<RangeEnemyComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
             
             foreach (var entity in _enemy)
             {
                 ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
-                var enemy = entity.GetComponent<EnemyPlayerDetectionComponent>();
+                var enemy = entity.GetComponent<RangeEnemyComponent>();
 
                 if (enemy.enemyController.EnemyStateMachine.CurrentStateType == EnemyStateMachine.EnemyStatesType.Chase)
                 {
