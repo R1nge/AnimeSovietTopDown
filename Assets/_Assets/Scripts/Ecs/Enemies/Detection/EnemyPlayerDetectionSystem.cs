@@ -15,7 +15,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
+            _enemyFilter = World.Filter.With<EnemyBaseComponent>().With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
             _playerFilter = World.Filter.With<PlayerMarkerComponent>().Build();
         }
 
@@ -24,7 +24,8 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
-                var enemy = entity.GetComponent<EnemyPlayerDetectionComponent>();
+                var enemyPlayerDetectionComponent = entity.GetComponent<EnemyPlayerDetectionComponent>();
+                var enemyBase = entity.GetComponent<EnemyBaseComponent>();
                 var movement = entity.GetComponent<CharacterControllerMovementComponent>();
 
                 var distance = Vector3.Distance(
@@ -32,16 +33,16 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
                     player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position
                 );
 
-                if (distance <= enemy.detectRange)
+                if (distance <= enemyPlayerDetectionComponent.detectRange)
                 {
-                    if (enemy.enemyController.EnemyStateMachine.CurrentStateType != EnemyStateMachine.EnemyStatesType.Attack)
+                    if (enemyBase.enemyController.EnemyStateMachine.CurrentStateType != EnemyStateMachine.EnemyStatesType.Attack)
                     {
-                        enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chase);    
+                        enemyBase.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chase);    
                     }
                 }
                 else
                 {
-                    enemy.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Idle);
+                    enemyBase.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Idle);
                 }
             }
         }

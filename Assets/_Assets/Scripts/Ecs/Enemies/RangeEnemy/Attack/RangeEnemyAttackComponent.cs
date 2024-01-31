@@ -1,9 +1,8 @@
 ﻿using System;
-using _Assets.Scripts.Enemies;
 using Scellecs.Morpeh;
 using UnityEngine;
 
-namespace _Assets.Scripts.Ecs.Enemies.Attack
+namespace _Assets.Scripts.Ecs.Enemies.RangeEnemy.Attack
 {
     [Serializable]
     public struct RangeEnemyAttackComponent : IComponent
@@ -12,6 +11,5 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
         public float attackRange;
         public int damage;
         public Transform shootPoint;
-        public EnemyController enemyController;
     }
 }

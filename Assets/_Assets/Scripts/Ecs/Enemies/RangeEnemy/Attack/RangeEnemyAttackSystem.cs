@@ -8,7 +8,7 @@ using Scellecs.Morpeh.Systems;
 using UnityEngine;
 using VContainer;
 
-namespace _Assets.Scripts.Ecs.Enemies.Attack
+namespace _Assets.Scripts.Ecs.Enemies.RangeEnemy.Attack
 {
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RangeEnemyAttackSystem))]
     public sealed class RangeEnemyAttackSystem : UpdateSystem
@@ -25,12 +25,13 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
         public override void OnUpdate(float deltaTime)
         {
             
-            _enemyFilter = World.Filter.With<RangeEnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
+            _enemyFilter = World.Filter.With<EnemyBaseComponent>().With<RangeEnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
             
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {
                 ref var rangeEnemyComponent = ref entity.GetComponent<RangeEnemyAttackComponent>();
+                var enemyBase = entity.GetComponent<EnemyBaseComponent>();
 
                 var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
                 var shootPointPosition = rangeEnemyComponent.shootPoint.position;
@@ -58,7 +59,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
 
                     if (distance <= rangeEnemyComponent.attackRange)
                     {
-                        rangeEnemyComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attack);
+                        enemyBase.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Attack);
 
                         var projectile = _projectileFactory.Create(ProjectileFactory.ProjectileType.Enemy);
                         projectile.transform.position = shootPointPosition;
@@ -69,7 +70,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Attack
                     }
                     else
                     {
-                        rangeEnemyComponent.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chase);
+                        enemyBase.enemyController.EnemyStateMachine.SwitchState(EnemyStateMachine.EnemyStatesType.Chase);
                     }
                 }
             }

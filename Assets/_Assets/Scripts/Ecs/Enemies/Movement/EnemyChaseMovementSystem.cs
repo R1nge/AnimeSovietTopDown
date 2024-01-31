@@ -1,6 +1,4 @@
-﻿using _Assets.Scripts.Ecs.Enemies.Attack;
-using _Assets.Scripts.Ecs.Enemies.Detection;
-using _Assets.Scripts.Ecs.Movement;
+﻿using _Assets.Scripts.Ecs.Enemies.RangeEnemy.Attack;
 using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Player;
 using _Assets.Scripts.Enemies;
@@ -10,8 +8,8 @@ using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Enemies.Movement
 {
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RangedEnemyChaseMovementSystem))]
-    public sealed class RangedEnemyChaseMovementSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyChaseMovementSystem))]
+    public sealed class EnemyChaseMovementSystem : UpdateSystem
     {
         private Filter _enemy;
         private Filter _player;
@@ -26,14 +24,15 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
             var player = _player.First();
             var playerPosition = player.GetComponent<CharacterControllerMovementComponent>().characterController.transform.position;
             
-            _enemy = World.Filter.With<RangeEnemyAttackComponent>().With<RangeEnemyAttackComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
-            
+            _enemy = World.Filter.With<EnemyBaseComponent>().With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
+
             foreach (var entity in _enemy)
             {
                 ref var movement = ref entity.GetComponent<CharacterControllerMovementComponent>();
                 var enemy = entity.GetComponent<RangeEnemyAttackComponent>();
+                var enemyBase = entity.GetComponent<EnemyBaseComponent>();
 
-                if (enemy.enemyController.EnemyStateMachine.CurrentStateType == EnemyStateMachine.EnemyStatesType.Chase)
+                if (enemyBase.enemyController.EnemyStateMachine.CurrentStateType == EnemyStateMachine.EnemyStatesType.Chase)
                 {
                     var enemyPosition = movement.characterController.transform.position;
                     var vectorFromEnemyToPlayer = playerPosition - enemyPosition;

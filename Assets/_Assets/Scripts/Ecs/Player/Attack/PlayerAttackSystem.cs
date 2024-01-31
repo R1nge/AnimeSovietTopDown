@@ -1,5 +1,5 @@
 ﻿using _Assets.Scripts.Ecs.Enemies;
-using _Assets.Scripts.Ecs.Enemies.Attack;
+using _Assets.Scripts.Ecs.Enemies.RangeEnemy.Attack;
 using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Rotation;
 using _Assets.Scripts.Services;

@@ -1,7 +1,6 @@
 ﻿using Scellecs.Morpeh.Providers;
-using UnityEngine;
 
-namespace _Assets.Scripts.Ecs.Enemies.Attack
+namespace _Assets.Scripts.Ecs.Enemies.RangeEnemy.Attack
 {
     public sealed class RangeEnemyAttackProvider : MonoProvider<RangeEnemyAttackComponent>
     {
