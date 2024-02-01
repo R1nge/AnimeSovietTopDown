@@ -1,12 +1,16 @@
 ﻿using _Assets.Scripts.Ecs.Movement.Characters;
+using Scellecs.Morpeh;
+using Scellecs.Morpeh.Systems;
+using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
 namespace _Assets.Scripts.Ecs.Animations
 {
-    using Scellecs.Morpeh;
-
+    [Il2CppSetOption(Option.NullChecks, false)]
+    [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
+    [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     [CreateAssetMenu(menuName = "ECS/Systems/Enemy/" + nameof(EnemyMovementAnimationSystem))]
-    public sealed class EnemyMovementAnimationSystem : Scellecs.Morpeh.Systems.UpdateSystem
+    public sealed class EnemyMovementAnimationSystem : UpdateSystem
     {
         private Filter _animationFilter;
         private static readonly int Speed = Animator.StringToHash("Speed");

@@ -1,13 +1,17 @@
 ﻿using _Assets.Scripts.Services;
+using Scellecs.Morpeh;
+using Scellecs.Morpeh.Systems;
+using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 using VContainer;
 
 namespace _Assets.Scripts.Ecs.Player.Attack
 {
-    using Scellecs.Morpeh;
-
+    [Il2CppSetOption(Option.NullChecks, false)]
+    [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
+    [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(SetPlayerFireRate))]
-    public sealed class SetPlayerFireRate : Scellecs.Morpeh.Systems.UpdateSystem
+    public sealed class SetPlayerFireRate : UpdateSystem
     {
         [Inject] private PlayerStatsService _playerStatsService;
         private Filter _filter;
