@@ -25,6 +25,8 @@ namespace _Assets.Scripts.Ecs.Rotation
                 {
                     return;
                 }
+                
+                movementComponent.direction.y = 0;
 
                 ref var rotation = ref entity.GetComponent<RotationComponent>();
                 rotation.rotation = Quaternion.LookRotation(movementComponent.direction);
