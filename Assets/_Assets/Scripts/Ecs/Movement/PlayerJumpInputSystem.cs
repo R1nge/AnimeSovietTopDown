@@ -35,9 +35,8 @@ namespace _Assets.Scripts.Ecs.Movement
             {
                 if (_lerp < 1)
                 {
-                    //TODO: create a jump height variable inside CharacterControllerMovementComponent
-                    character.direction.y = Mathf.Lerp(0, 1, _lerp);
-                    float duration = 1;
+                    character.direction.y = Mathf.Lerp(0, character.jumpHeight, _lerp);
+                    float duration = character.jumpDuration;
                     _lerp += deltaTime / duration;
                 }
 

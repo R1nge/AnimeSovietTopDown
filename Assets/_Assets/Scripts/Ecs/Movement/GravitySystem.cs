@@ -24,7 +24,7 @@ namespace _Assets.Scripts.Ecs.Movement
             foreach (var entity in _filter)
             {
                 ref var component = ref entity.GetComponent<CharacterControllerMovementComponent>();
-                component.direction.y = Physics.gravity.y * deltaTime;
+                component.direction.y = component.gravity * deltaTime;
             }
         }
     }
