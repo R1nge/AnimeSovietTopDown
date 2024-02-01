@@ -10,7 +10,7 @@ PC only? I don't think that a mobile GPU can handle such 3D
 
 TODO:
 
-Since the game is 3d a jump can be added to dodge projectiles
+Since the game is 3d a jump can be added to dodge projectiles/ or maybe not jump but float (Jump system, right after gravity)
 
 Switch to next wave
 Upgrades between waves
@@ -22,11 +22,11 @@ Enemies:
 Melee (Explode, attack up close, run into the player)
 Range (Different fire rate, projectile size, projectile speed, attack range)
 
-Models (Use VRM importer to import an anime model)
+Models (Use VRM importer to import an anime model
+https://github.com/vrm-c/UniVRM
+https://github.com/simplestargame/SimpleURPToonLitOutlineExample
+
 Animations
-
-
-
 
 Enemy Movement (Nav mesh?)
 

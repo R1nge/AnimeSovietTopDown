@@ -17,7 +17,7 @@ namespace _Assets.Scripts.Ecs.Inputs
     {
         [Inject] private InputService _inputService;
         private Filter _filter;
-        
+
         public override void OnAwake()
         {
             _filter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().Build();
@@ -26,7 +26,9 @@ namespace _Assets.Scripts.Ecs.Inputs
         public override void OnUpdate(float deltaTime)
         {
             var player = _filter.First();
-            player.GetComponent<CharacterControllerMovementComponent>().direction = _inputService.InputVector;
+            ref var character = ref player.GetComponent<CharacterControllerMovementComponent>();
+            character.direction.x = _inputService.InputVector.x;
+            character.direction.z = _inputService.InputVector.z;
         }
     }
 }

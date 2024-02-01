@@ -10,12 +10,8 @@ namespace _Assets.Scripts.Services.Inputs
 
         private void Update()
         {
-            var y = 0;
-            if (Input.GetMouseButtonDown(0))
-            {
-                y = 1000;
-            }
-            _inputService.SetMovementVector(new Vector3(joystick.Direction.x, y, joystick.Direction.y));
+            _inputService.InputVector.x = joystick.Direction.x;
+            _inputService.InputVector.z = joystick.Direction.y;
         }
     }
 }
