@@ -6,15 +6,11 @@ If filter is cached it would apply only to entities, which was spawned first and
 On build disable logs
 
 TODO:
-
-Wave started, wave ended states
-
 Switch to next wave
 Upgrades between waves
 Collect bottles of vodka to heal
 
-Shop
-Skins
+Shop (skins)
 
 
 Enemies:
@@ -25,7 +21,12 @@ Models (Use VRM importer to import an anime model)
 Animations
 
 
+Since the game is 3d a jump can be added to dodge projectiles
+
 Enemy Movement (Nav mesh?)
+
+Ref
+https://www.youtube.com/watch?v=gwE0FdWF-SA
 
 Done:
 Top down camera follow
