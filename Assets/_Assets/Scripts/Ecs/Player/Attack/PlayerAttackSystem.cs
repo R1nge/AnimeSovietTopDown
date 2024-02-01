@@ -2,6 +2,7 @@
 using _Assets.Scripts.Ecs.Enemies.RangeEnemy.Attack;
 using _Assets.Scripts.Ecs.Movement.Characters;
 using _Assets.Scripts.Ecs.Rotation;
+using _Assets.Scripts.Misc;
 using _Assets.Scripts.Services;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
@@ -13,6 +14,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
     [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerAttackSystem))]
     public class PlayerAttackSystem : UpdateSystem
     {
+        [Inject] private IMyLogger _myLogger;
         [Inject] private ProjectileFactory _projectileFactory;
         private Filter _enemyFilter;
         private Filter _playerFilter;
@@ -69,7 +71,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
             if (closestEnemy == null)
             {
-                Debug.LogWarning("Closest enemy is null");
+                _myLogger.LogWarning("Closest enemy is null");
                 return;
             }
 

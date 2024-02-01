@@ -21,12 +21,12 @@ namespace _Assets.Scripts.Ecs.Rotation
             {
                 var movementComponent = entity.GetComponent<CharacterControllerMovementComponent>();
 
+                movementComponent.direction.y = 0;
+                
                 if (movementComponent.direction == Vector3.zero)
                 {
                     return;
                 }
-                
-                movementComponent.direction.y = 0;
 
                 ref var rotation = ref entity.GetComponent<RotationComponent>();
                 rotation.rotation = Quaternion.LookRotation(movementComponent.direction);

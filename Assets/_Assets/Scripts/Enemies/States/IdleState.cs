@@ -1,20 +1,22 @@
-﻿using UnityEngine;
+﻿using _Assets.Scripts.Misc;
+using UnityEngine;
 
 namespace _Assets.Scripts.Enemies.States
 {
     public class IdleState : IEnemyState
     {
         private readonly Animator _animator;
-        
-        public IdleState(Animator animator)
+        private readonly IMyLogger _logger;
+
+        public IdleState(Animator animator, IMyLogger logger)
         {
             _animator = animator;
+            _logger = logger;
         }
         
         public void Enter()
         {
-            _animator.Play("");
-            Debug.Log("Enter Idle State");
+            _logger.Log("Enter Idle State");
         }
 
         public void Update(float deltaTime)
@@ -24,7 +26,7 @@ namespace _Assets.Scripts.Enemies.States
 
         public void Exit()
         {
-            Debug.Log("Exit Idle State");
+            _logger.Log("Exit Idle State");
         }
     }
 }

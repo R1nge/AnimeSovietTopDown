@@ -4,14 +4,17 @@ Shooting hordes of Gopniks
 IMPORTANT:
 If filter is cached it would apply only to entities, which was spawned first and simultaneous
 On build disable logs
+Store only value types in a component?
 
 TODO:
+
+Since the game is 3d a jump can be added to dodge projectiles
+
 Switch to next wave
 Upgrades between waves
 Collect bottles of vodka to heal
 
 Shop (skins)
-
 
 Enemies:
 Melee (Explode, attack up close, run into the player)
@@ -21,7 +24,7 @@ Models (Use VRM importer to import an anime model)
 Animations
 
 
-Since the game is 3d a jump can be added to dodge projectiles
+
 
 Enemy Movement (Nav mesh?)
 

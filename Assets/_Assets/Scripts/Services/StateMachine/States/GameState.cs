@@ -17,10 +17,6 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public void Enter()
         {
-#if !(DEVELOPMENT_BUILD || UNITY_EDITOR)
-Debug.unityLogger.filterLogType = LogType.Exception;
-#endif 
-            
             var player = _playerFactory.Create();
             _stateMachine.SwitchState(GameStateType.WaveStarted);
         }

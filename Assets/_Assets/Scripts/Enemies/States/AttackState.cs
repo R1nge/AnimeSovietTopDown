@@ -1,19 +1,22 @@
-﻿using UnityEngine;
+﻿using _Assets.Scripts.Misc;
+using UnityEngine;
 
 namespace _Assets.Scripts.Enemies.States
 {
     public class AttackState : IEnemyState
     {
-        public readonly Animator Animator;
+        private readonly Animator _animator;
+        private readonly IMyLogger _logger;
         
-        public AttackState(Animator animator)
+        public AttackState(Animator animator, IMyLogger logger)
         {
-            Animator = animator;
+            _animator = animator;
+            _logger = logger;
         }
         
         public void Enter()
         {
-            Debug.Log("Enter attack state");
+           _logger.Log("Enter attack state");
         }
 
         public void Update(float deltaTime)
@@ -23,7 +26,7 @@ namespace _Assets.Scripts.Enemies.States
 
         public void Exit()
         {
-            Debug.Log("Exit attack state");
+            _logger.Log("Exit attack state");
         }
     }
 }

@@ -1,25 +1,28 @@
 ﻿using System.Collections.Generic;
 using _Assets.Scripts.Enemies.States;
+using _Assets.Scripts.Misc;
 using UnityEngine;
 
 namespace _Assets.Scripts.Enemies
 {
     public class EnemyStateMachine
     {
+        private readonly IMyLogger _logger;
         private readonly Dictionary<EnemyStatesType, IEnemyState> _enemyStates;
         private EnemyStatesType _currentStateType = EnemyStatesType.Idle;
         private IEnemyState _currentState;
         
         public EnemyStatesType CurrentStateType => _currentStateType;
 
-        public EnemyStateMachine(Animator animator, EnemyDeathController enemyDeathController)
+        public EnemyStateMachine(Animator animator, EnemyDeathController enemyDeathController, IMyLogger logger)
         {
+            _logger = logger;
             _enemyStates = new Dictionary<EnemyStatesType, IEnemyState>
             {
-                { EnemyStatesType.Idle, new IdleState(animator) },
+                { EnemyStatesType.Idle, new IdleState(animator, logger) },
                 { EnemyStatesType.Roam, new RoamingState(animator) },
-                { EnemyStatesType.Chase, new ChasingState(animator) },
-                { EnemyStatesType.Attack, new AttackState(animator) },
+                { EnemyStatesType.Chase, new ChasingState(animator, logger) },
+                { EnemyStatesType.Attack, new AttackState(animator, logger) },
                 { EnemyStatesType.Death, new DeathState(animator, enemyDeathController)}
             };
         }
@@ -33,7 +36,7 @@ namespace _Assets.Scripts.Enemies
         {
             if (_currentStateType == stateType)
             {
-                Debug.LogWarning($"Enemy already in {stateType} state ");
+                _logger.LogWarning($"Enemy already in {stateType} state");
                 return;
             }
 

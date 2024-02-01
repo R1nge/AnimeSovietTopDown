@@ -1,19 +1,22 @@
-﻿using UnityEngine;
+﻿using _Assets.Scripts.Misc;
+using UnityEngine;
 
 namespace _Assets.Scripts.Enemies.States
 {
     public class ChasingState : IEnemyState
     {
         private readonly Animator _animator;
+        private readonly IMyLogger _logger;
 
-        public ChasingState(Animator animator)
+        public ChasingState(Animator animator, IMyLogger logger)
         {
             _animator = animator;
+            _logger = logger;
         }
         
         public void Enter()
         {
-            Debug.Log("Enter Chasing State");
+            _logger.Log("Enter Chasing State");
         }
 
         public void Update(float deltaTime)
@@ -23,7 +26,7 @@ namespace _Assets.Scripts.Enemies.States
 
         public void Exit()
         {
-            Debug.Log("Exit Chasing State");
+            _logger.Log("Exit Chasing State");
         }
     }
 }
