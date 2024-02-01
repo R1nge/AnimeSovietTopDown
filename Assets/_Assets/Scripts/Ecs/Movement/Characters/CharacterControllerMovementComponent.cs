@@ -15,8 +15,5 @@ namespace _Assets.Scripts.Ecs.Movement.Characters
         public Vector3 direction;
         public float speed;
         public float gravity;
-        //Move it to jump component
-        public float jumpHeight;
-        public float jumpDuration;
     }
 }

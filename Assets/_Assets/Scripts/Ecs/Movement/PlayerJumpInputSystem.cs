@@ -1,5 +1,6 @@
 ﻿using System;
 using _Assets.Scripts.Ecs.Movement.Characters;
+using _Assets.Scripts.Ecs.Player;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
@@ -16,13 +17,14 @@ namespace _Assets.Scripts.Ecs.Movement
 
         public override void OnAwake()
         {
-            _filter = World.Filter.With<CharacterControllerMovementComponent>().Build();
+            _filter = World.Filter.With<PlayerMarkerComponent>().With<CharacterControllerMovementComponent>().With<JumpComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
             var player = _filter.First();
             ref var character = ref player.GetComponent<CharacterControllerMovementComponent>();
+            var jump = player.GetComponent<JumpComponent>();
 
             _canJump = character.characterController.isGrounded;
             
@@ -35,8 +37,8 @@ namespace _Assets.Scripts.Ecs.Movement
             {
                 if (_lerp < 1)
                 {
-                    character.direction.y = Mathf.Lerp(0, character.jumpHeight, _lerp);
-                    float duration = character.jumpDuration;
+                    character.direction.y = Mathf.Lerp(0, jump.jumpHeight, _lerp);
+                    float duration = jump.jumpDuration;
                     _lerp += deltaTime / duration;
                 }
 

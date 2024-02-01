@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 9075132025181533024}
   - component: {fileID: 4579423714679696318}
   - component: {fileID: 6389110521691775763}
+  - component: {fileID: 4053827606341017820}
   - component: {fileID: 3353520231606331260}
   m_Layer: 6
   m_Name: Player
@@ -214,8 +215,6 @@ MonoBehaviour:
     direction: {x: 0, y: 0, z: 0}
     speed: 5
     gravity: -20
-    jumpHeight: 1
-    jumpDuration: 1
 --- !u!114 &9075132025181533024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +262,21 @@ MonoBehaviour:
     attackRange: 7
     cooldown: 0.2
     currentCoolDown: 0
+--- !u!114 &4053827606341017820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883420190452881410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e57095f9e8b4e3483d4df4e5bac6b27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    jumpHeight: 1
+    jumpDuration: 1
 --- !u!114 &3353520231606331260
 MonoBehaviour:
   m_ObjectHideFlags: 0
