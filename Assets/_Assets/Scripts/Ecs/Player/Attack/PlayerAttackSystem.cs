@@ -75,7 +75,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
 
             if (closestEnemy == null)
             {
-                _myLogger.LogWarning("Closest enemy is null");
+                
                 return;
             }
 

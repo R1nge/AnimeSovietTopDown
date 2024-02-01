@@ -36,7 +36,6 @@ namespace _Assets.Scripts.Enemies
         {
             if (_currentStateType == stateType)
             {
-                _logger.LogWarning($"Enemy already in {stateType} state");
                 return;
             }
 

@@ -5,6 +5,8 @@ IMPORTANT:
 If filter is cached it would apply only to entities, which was spawned first and simultaneous
 On build disable logs
 Store only value types in a component?
+Logs are eating lots of performance still
+PC only? I don't think that a mobile GPU can handle such 3D
 
 TODO:
 

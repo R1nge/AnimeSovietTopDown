@@ -16,7 +16,6 @@ namespace _Assets.Scripts.Enemies.States
         
         public void Enter()
         {
-           _logger.Log("Enter attack state");
         }
 
         public void Update(float deltaTime)
@@ -26,7 +25,6 @@ namespace _Assets.Scripts.Enemies.States
 
         public void Exit()
         {
-            _logger.Log("Exit attack state");
         }
     }
 }

@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 26
   productGUID: 890eb950b7149894ebb0bbc63b719370
   AndroidProfiler: 0
-  AndroidFilterTouchesWhenObscured: 0
+  AndroidFilterTouchesWhenObscured: 1
   AndroidEnableSustainedPerformanceMode: 0
   defaultScreenOrientation: 3
   targetDevice: 2
@@ -138,6 +138,8 @@ PlayerSettings:
   bundleVersion: 0.1
   preloadedAssets:
   - {fileID: 11400000, guid: 1af90a740697d2548a911c23ce57e4ae, type: 2}
+  - {fileID: -218508363304568605, guid: 3ba2767d7dc41f94ba25ad9944e741b2, type: 2}
+  - {fileID: 11400000, guid: 0e27871b8cb67c94085e57196ffc543e, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -158,6 +160,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.R1nge.AnimeSovietTopDown
+    Standalone: com.R1nge.AnimeSovietTopDown
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -381,7 +384,7 @@ PlayerSettings:
     m_DynamicBatching: 0
   - m_BuildTarget: Android
     m_StaticBatching: 1
-    m_DynamicBatching: 0
+    m_DynamicBatching: 1
   - m_BuildTarget: iPhone
     m_StaticBatching: 1
     m_DynamicBatching: 0
@@ -413,7 +416,7 @@ PlayerSettings:
   - m_BuildTarget: LuminSupport
     m_GraphicsJobs: 0
   - m_BuildTarget: AndroidPlayer
-    m_GraphicsJobs: 0
+    m_GraphicsJobs: 1
   - m_BuildTarget: WebGLSupport
     m_GraphicsJobs: 0
   m_BuildTargetGraphicsJobMode:

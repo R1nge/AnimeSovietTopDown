@@ -20,12 +20,16 @@ namespace _Assets.Scripts.Ecs.Movement.Characters
 
         public override void OnUpdate(float deltaTime)
         {
-            _movementFilter = World.Filter.With<CharacterControllerMovementComponent>().Without<EnemyDeadMarker>().Build();
+            _movementFilter = World.Filter.With<CharacterControllerMovementComponent>().Build(); //.Without<EnemyDeadMarker>().Build();
 
             foreach (var entity in _movementFilter)
             {
                 var movement = entity.GetComponent<CharacterControllerMovementComponent>();
-                movement.characterController.Move(movement.direction * movement.speed * deltaTime);
+
+                if (movement.characterController.enabled)
+                {
+                    movement.characterController.Move(movement.direction * movement.speed * deltaTime);
+                }
             }
         }
     }
