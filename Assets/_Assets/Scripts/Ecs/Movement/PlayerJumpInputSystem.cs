@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Ecs.Movement.Characters;
+﻿using System;
+using _Assets.Scripts.Ecs.Movement.Characters;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
@@ -9,6 +10,9 @@ namespace _Assets.Scripts.Ecs.Movement
     public sealed class PlayerJumpInputSystem : UpdateSystem
     {
         private Filter _filter;
+        private float _lerp;
+        private bool _canJump;
+        private bool _jumped;
 
         public override void OnAwake()
         {
@@ -17,11 +21,31 @@ namespace _Assets.Scripts.Ecs.Movement
 
         public override void OnUpdate(float deltaTime)
         {
-            if (Input.GetMouseButtonDown(0))
+            var player = _filter.First();
+            ref var character = ref player.GetComponent<CharacterControllerMovementComponent>();
+
+            _canJump = character.characterController.isGrounded;
+            
+            if (Input.GetMouseButtonDown(0) && !_jumped && _canJump)
             {
-                var player = _filter.First();
-                ref var character = ref player.GetComponent<CharacterControllerMovementComponent>();
-                character.direction.y = 10;
+                _jumped = true;
+            }
+
+            if (_jumped)
+            {
+                if (_lerp < 1)
+                {
+                    //TODO: create a jump height variable inside CharacterControllerMovementComponent
+                    character.direction.y = Mathf.Lerp(0, 1, _lerp);
+                    float duration = 1;
+                    _lerp += deltaTime / duration;
+                }
+
+                if (_lerp >= 1)
+                {
+                    _lerp = 0;
+                    _jumped = false;
+                }
             }
         }
     }
