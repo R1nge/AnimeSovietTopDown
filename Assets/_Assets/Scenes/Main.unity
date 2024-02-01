@@ -340,6 +340,8 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: b1d55211a6c4d9a42b87dda8044cb6ae, type: 2}
   - enabled: 1
+    system: {fileID: 11400000, guid: f73222bb5342dfc44bbac26a32a7cd27, type: 2}
+  - enabled: 1
     system: {fileID: 11400000, guid: ef8419bb9b3c3144fadd4474972e302e, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 3ee8ef8be2591714abc132303f16d6bd, type: 2}

@@ -12,8 +12,8 @@ namespace _Assets.Scripts.Ecs.Inputs
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerInputSystem), fileName = "PlayerInputSystem")]
-    public class PlayerInputSystem : UpdateSystem
+    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerMovementInputSystem), fileName = "PlayerInputSystem")]
+    public class PlayerMovementInputSystem : UpdateSystem
     {
         [Inject] private InputService _inputService;
         private Filter _filter;
