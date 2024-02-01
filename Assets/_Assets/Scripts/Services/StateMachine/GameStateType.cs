@@ -1,7 +1,12 @@
 ﻿namespace _Assets.Scripts.Services.StateMachine
 {
-    public enum GameStateType
+    public enum GameStateType : byte
     {
-        Game
+        None = 0,
+        Init = 1,
+        Game = 2,
+        WaveStarted = 3,
+        WaveEnded = 4,
+        GameOver = 5
     }
 }

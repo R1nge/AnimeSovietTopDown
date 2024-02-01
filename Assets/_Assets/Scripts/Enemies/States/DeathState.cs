@@ -16,6 +16,9 @@ namespace _Assets.Scripts.Enemies.States
         public void Enter()
         {
             _enemyDeathController.Die();
+            _animator.enabled = false;
+            //TODO: stop animations
+            //TODO: ragdoll?
         }
 
         public void Update(float deltaTime)

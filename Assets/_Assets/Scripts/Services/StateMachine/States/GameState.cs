@@ -22,7 +22,7 @@ Debug.unityLogger.filterLogType = LogType.Exception;
 #endif 
             
             var player = _playerFactory.Create();
-            _waveSpawner.Spawn();
+            _stateMachine.SwitchState(GameStateType.WaveStarted);
         }
 
         public void Exit() { }
