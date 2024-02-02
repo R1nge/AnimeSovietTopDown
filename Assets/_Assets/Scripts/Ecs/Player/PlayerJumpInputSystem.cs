@@ -1,14 +1,17 @@
 ﻿using _Assets.Scripts.Ecs.Movement;
 using _Assets.Scripts.Ecs.Movement.Characters;
+using _Assets.Scripts.Services.Inputs;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
+using VContainer;
 
 namespace _Assets.Scripts.Ecs.Player
 {
     [CreateAssetMenu(menuName = "ECS/Systems/Player/" + nameof(PlayerJumpInputSystem))]
     public sealed class PlayerJumpInputSystem : UpdateSystem
     {
+        [Inject] private InputService _inputService;
         private Filter _filter;
         private float _lerp;
         private bool _canJump;
@@ -27,8 +30,8 @@ namespace _Assets.Scripts.Ecs.Player
             var jump = player.GetComponent<JumpComponent>();
 
             _canJump = character.characterController.isGrounded;
-
-            if (Input.GetMouseButtonDown(0) && !_jumped && _canJump)
+            
+            if (_inputService.Jump && !_jumped && _canJump)
             {
                 _startPosition = character.characterController.transform.position.y;
                 _jumped = true;
