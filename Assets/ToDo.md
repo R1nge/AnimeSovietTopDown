@@ -10,8 +10,6 @@ PC only? I don't think that a mobile GPU can handle such 3D
 
 TODO:
 
-
-
 Switch to next wave
 Upgrades between waves
 
@@ -33,6 +31,7 @@ Enemy Movement (Nav mesh?)
 
 Ref
 https://www.youtube.com/watch?v=gwE0FdWF-SA
+https://www.youtube.com/watch?v=Ph3wh84vWD4
 
 Done:
 Top down camera follow

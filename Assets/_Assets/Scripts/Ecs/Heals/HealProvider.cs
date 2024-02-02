@@ -1,5 +1,4 @@
-﻿using System;
-using _Assets.Scripts.Ecs.Healths;
+﻿using _Assets.Scripts.Ecs.Healths;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
 using UnityEngine;
@@ -14,7 +13,6 @@ namespace _Assets.Scripts.Ecs.Heals
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.LogError("Collision");
             if (other.TryGetComponent(out HealthProvider healthProvider))
             {
                 var data = healthProvider.GetData();
