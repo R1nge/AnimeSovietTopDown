@@ -13,28 +13,28 @@ namespace _Assets.Scripts.Ecs.Heals
     public class HealSystem : UpdateSystem
     {
         private Request<HealRequest> _healRequest;
-        private Event<HealedEvent> _damagedEvent;
+        private Event<HealedEvent> _healedEvent;
 
         public override void OnAwake()
         {
             _healRequest = World.GetRequest<HealRequest>();
-            _damagedEvent = World.GetEvent<HealedEvent>();
+            _healedEvent = World.GetEvent<HealedEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
         {
             foreach (var request in _healRequest.Consume())
             {
-                ApplyDamage(request.TargetEntityId, request.Heal);
+                ApplyHeal(request.TargetEntityId, request.Heal);
 
-                _damagedEvent.NextFrame(new HealedEvent
+                _healedEvent.NextFrame(new HealedEvent
                 {
                     TargetEntityId = request.TargetEntityId,
                 });
             }
         }
 
-        private void ApplyDamage(EntityId target, int heal)
+        private void ApplyHeal(EntityId target, int heal)
         {
             if (World.TryGetEntity(target, out var entity))
             {
