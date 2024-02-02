@@ -6,12 +6,10 @@ namespace _Assets.Scripts.Enemies.States
     public class ChasingState : IEnemyState
     {
         private readonly Animator _animator;
-        private readonly IMyLogger _logger;
 
-        public ChasingState(Animator animator, IMyLogger logger)
+        public ChasingState(Animator animator)
         {
             _animator = animator;
-            _logger = logger;
         }
         
         public void Enter()

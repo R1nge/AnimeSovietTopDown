@@ -345,7 +345,7 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: f73222bb5342dfc44bbac26a32a7cd27, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: ef8419bb9b3c3144fadd4474972e302e, type: 2}
-  - enabled: 1
+  - enabled: 0
     system: {fileID: 11400000, guid: 3ee8ef8be2591714abc132303f16d6bd, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 48b793a6e6171ef4f80c67e51734b815, type: 2}
@@ -412,7 +412,7 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: 6d5e26d2e0f1c4b4fb34cbab6d6225a4, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 2d8f01c995bdbae4b9e6b0c9ba761b2a, type: 2}
-  - enabled: 1
+  - enabled: 0
     system: {fileID: 11400000, guid: 89d070132d9caf74dbe983545bb2201f, type: 2}
   fixedUpdateSystems: []
   lateUpdateSystems: []

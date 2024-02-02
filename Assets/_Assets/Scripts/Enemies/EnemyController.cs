@@ -1,6 +1,4 @@
-﻿using _Assets.Scripts.Misc;
-using UnityEngine;
-using VContainer;
+﻿using UnityEngine;
 
 namespace _Assets.Scripts.Enemies
 {
@@ -8,13 +6,19 @@ namespace _Assets.Scripts.Enemies
     {
         [SerializeField] private Animator animator;
         [SerializeField] private EnemyDeathController enemyDeathController;
-        [Inject] private IMyLogger _myLogger;
         private EnemyStateMachine _enemyStateMachine;
-        public EnemyStateMachine EnemyStateMachine => _enemyStateMachine;
 
-        private void Start()
+        public EnemyStateMachine EnemyStateMachine
         {
-            _enemyStateMachine = new EnemyStateMachine(animator, enemyDeathController, _myLogger);
+            get
+            {
+                if (_enemyStateMachine == null)
+                {
+                    return _enemyStateMachine = new EnemyStateMachine(animator, enemyDeathController);
+                }
+
+                return _enemyStateMachine;
+            }
         }
     }
 }

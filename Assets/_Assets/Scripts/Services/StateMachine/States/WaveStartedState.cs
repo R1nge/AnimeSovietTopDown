@@ -9,9 +9,9 @@
             _waveSpawner = waveSpawner;
         }
         
-        public void Enter()
+        public async void Enter()
         {
-            _waveSpawner.Spawn();
+            await _waveSpawner.Spawn();
         }
 
         public void Exit()

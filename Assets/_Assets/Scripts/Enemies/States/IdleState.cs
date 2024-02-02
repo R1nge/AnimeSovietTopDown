@@ -6,12 +6,10 @@ namespace _Assets.Scripts.Enemies.States
     public class IdleState : IEnemyState
     {
         private readonly Animator _animator;
-        private readonly IMyLogger _logger;
 
-        public IdleState(Animator animator, IMyLogger logger)
+        public IdleState(Animator animator)
         {
             _animator = animator;
-            _logger = logger;
         }
         
         public void Enter()

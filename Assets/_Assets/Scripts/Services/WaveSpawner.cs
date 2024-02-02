@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 using VContainer;
 
 namespace _Assets.Scripts.Services
@@ -8,8 +9,8 @@ namespace _Assets.Scripts.Services
         [Inject] private EnemyWavesService _enemyWavesService;
         [Inject] private EnemyFactory _enemyFactory;
         [SerializeField] private Transform[] spawnPoints;
-        
-        public void Spawn()
+
+        public async UniTask Spawn()
         {
             for (int i = 0; i < _enemyWavesService.Waves.Length; i++)
             {
@@ -22,6 +23,7 @@ namespace _Assets.Scripts.Services
                             var enemy = _enemyFactory.Create(_enemyWavesService.Waves[i].waves[j].prefabs[k]);
                             var position = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
                             enemy.transform.position = position;
+                            await UniTask.Delay(1000);
                         }
                     }
                 }

@@ -7,22 +7,20 @@ namespace _Assets.Scripts.Enemies
 {
     public class EnemyStateMachine
     {
-        private readonly IMyLogger _logger;
         private readonly Dictionary<EnemyStatesType, IEnemyState> _enemyStates;
         private EnemyStatesType _currentStateType = EnemyStatesType.Idle;
         private IEnemyState _currentState;
         
         public EnemyStatesType CurrentStateType => _currentStateType;
 
-        public EnemyStateMachine(Animator animator, EnemyDeathController enemyDeathController, IMyLogger logger)
+        public EnemyStateMachine(Animator animator, EnemyDeathController enemyDeathController)
         {
-            _logger = logger;
             _enemyStates = new Dictionary<EnemyStatesType, IEnemyState>
             {
-                { EnemyStatesType.Idle, new IdleState(animator, logger) },
+                { EnemyStatesType.Idle, new IdleState(animator) },
                 { EnemyStatesType.Roam, new RoamingState(animator) },
-                { EnemyStatesType.Chase, new ChasingState(animator, logger) },
-                { EnemyStatesType.Attack, new AttackState(animator, logger) },
+                { EnemyStatesType.Chase, new ChasingState(animator) },
+                { EnemyStatesType.Attack, new AttackState(animator) },
                 { EnemyStatesType.Death, new DeathState(animator, enemyDeathController)}
             };
         }
