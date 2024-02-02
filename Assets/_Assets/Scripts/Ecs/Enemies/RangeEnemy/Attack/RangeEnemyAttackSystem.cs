@@ -28,8 +28,13 @@ namespace _Assets.Scripts.Ecs.Enemies.RangeEnemy.Attack
 
         public override void OnUpdate(float deltaTime)
         {
-            
-            _enemyFilter = World.Filter.With<EnemyBaseComponent>().With<RangeEnemyAttackComponent>().With<CharacterControllerMovementComponent>().With<RotationComponent>().Without<EnemyDeadMarker>().Build();
+            _enemyFilter = World.Filter
+                .With<EnemyBaseComponent>()
+                .With<RangeEnemyAttackComponent>()
+                .With<CharacterControllerMovementComponent>()
+                .With<RotationComponent>()
+                .Without<EnemyDeadMarker>()
+                .Build();
             
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)

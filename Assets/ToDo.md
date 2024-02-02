@@ -10,9 +10,11 @@ PC only? I don't think that a mobile GPU can handle such 3D
 
 TODO:
 
+Collect bottles of vodka to heal
+
 Switch to next wave
 Upgrades between waves
-Collect bottles of vodka to heal
+
 
 Shop (skins)
 

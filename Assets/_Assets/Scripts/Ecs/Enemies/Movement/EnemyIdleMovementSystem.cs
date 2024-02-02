@@ -19,7 +19,11 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
 
         public override void OnUpdate(float deltaTime)
         {
-            _enemy = World.Filter.With<EnemyBaseComponent>().With<CharacterControllerMovementComponent>().Build();
+            _enemy = World.Filter
+                .With<EnemyBaseComponent>()
+                .With<CharacterControllerMovementComponent>()
+                .Without<EnemyDeadMarker>()
+                .Build();
             
             foreach (var entity in _enemy)
             {

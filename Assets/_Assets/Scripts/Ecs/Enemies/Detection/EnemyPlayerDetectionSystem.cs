@@ -19,12 +19,18 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
 
         public override void OnAwake()
         {
-            _enemyFilter = World.Filter.With<EnemyBaseComponent>().With<EnemyPlayerDetectionComponent>().With<CharacterControllerMovementComponent>().Build();
             _playerFilter = World.Filter.With<PlayerMarkerComponent>().Build();
         }
 
         public override void OnUpdate(float deltaTime)
         {
+            _enemyFilter = World.Filter
+                .With<EnemyBaseComponent>()
+                .With<EnemyPlayerDetectionComponent>()
+                .With<CharacterControllerMovementComponent>()
+                .Without<EnemyDeadMarker>()
+                .Build();
+            
             var player = _playerFilter.First();
             foreach (var entity in _enemyFilter)
             {

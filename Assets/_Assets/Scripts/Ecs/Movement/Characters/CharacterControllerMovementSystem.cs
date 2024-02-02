@@ -20,7 +20,10 @@ namespace _Assets.Scripts.Ecs.Movement.Characters
 
         public override void OnUpdate(float deltaTime)
         {
-            _movementFilter = World.Filter.With<CharacterControllerMovementComponent>().Build(); //.Without<EnemyDeadMarker>().Build();
+            _movementFilter = World.Filter
+                .With<CharacterControllerMovementComponent>()
+                .Without<EnemyDeadMarker>()
+                .Build(); //.Without<EnemyDeadMarker>().Build();
 
             foreach (var entity in _movementFilter)
             {
