@@ -214,7 +214,7 @@ MonoBehaviour:
     characterController: {fileID: 3264212631529656977}
     direction: {x: 0, y: 0, z: 0}
     speed: 5
-    gravity: -20
+    gravity: -50
 --- !u!114 &9075132025181533024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    jumpHeight: 1
-    jumpDuration: 1
+    jumpHeight: 4
+    jumpDuration: 0.5
 --- !u!114 &3353520231606331260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5236899541787227291}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.39717114, y: 3e-45, z: -1e-45, w: 0.9177446}
+  m_LocalRotation: {x: 0.39717114, y: 1e-45, z: -0, w: 0.9177446}
   m_LocalPosition: {x: 0, y: 10.65, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

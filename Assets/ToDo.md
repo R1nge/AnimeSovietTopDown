@@ -10,8 +10,6 @@ PC only? I don't think that a mobile GPU can handle such 3D
 
 TODO:
 
-Since the game is 3d a jump can be added to dodge projectiles/ or maybe not jump but float (Jump system, right after gravity)
-
 Switch to next wave
 Upgrades between waves
 Collect bottles of vodka to heal
@@ -54,3 +52,4 @@ Waves (Enemies prefabs, time before spawn, enemies count)
 Waves spawner
 Player attack system allow to shoot up and down
 Enemy running animation
+Since the game is 3d a jump can be added to dodge projectiles/ or maybe not jump but float (Jump system, right after gravity)
