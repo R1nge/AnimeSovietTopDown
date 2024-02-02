@@ -10,6 +10,8 @@ PC only? I don't think that a mobile GPU can handle such 3D
 
 TODO:
 
+Adaptive performance
+
 Switch to next wave
 Upgrades between waves
 
