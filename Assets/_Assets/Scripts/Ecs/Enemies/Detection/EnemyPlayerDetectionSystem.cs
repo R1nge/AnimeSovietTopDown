@@ -11,7 +11,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Detection
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyPlayerDetectionSystem))]
+    [CreateAssetMenu(menuName = "ECS/Systems/Enemy/" + nameof(EnemyPlayerDetectionSystem))]
     public sealed class EnemyPlayerDetectionSystem : UpdateSystem
     {
         private Filter _enemyFilter;

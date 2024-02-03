@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 8886019364644632810, guid: 43abdc262316c224e999c92175ba14b3, type: 3}
   timeBetweenSpawn:
   - 0
-  spawnCount: fa000000
+  spawnCount: 96000000

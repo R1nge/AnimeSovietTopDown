@@ -4,6 +4,8 @@
     "com.codewriter.morpeh.systemstateprocessor": "https://github.com/codewriter-packages/Morpeh.SystemStateProcessor.git",
     "com.codewriter.triinspector": "https://github.com/codewriter-packages/Tri-Inspector.git",
     "com.scellecs.morpeh": "https://github.com/scellecs/morpeh.git#2023.1.0",
+    "com.unity.adaptiveperformance": "5.0.2",
+    "com.unity.adaptiveperformance.google.android": "1.2.1",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.development": "1.0.1",

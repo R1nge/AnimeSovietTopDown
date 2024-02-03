@@ -11,7 +11,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(SetPlayerProjectileMovementSpeed))]
+    [CreateAssetMenu(menuName = "ECS/Systems/Player/" + nameof(SetPlayerProjectileMovementSpeed))]
     public sealed class SetPlayerProjectileMovementSpeed : UpdateSystem
     {
         [Inject] private PlayerStatsService _playerStatsService;

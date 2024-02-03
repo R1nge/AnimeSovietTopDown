@@ -11,7 +11,7 @@ namespace _Assets.Scripts.Ecs.Player
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(SetPlayerMovementSpeedSystem))]
+    [CreateAssetMenu(menuName = "ECS/Systems/Player/" + nameof(SetPlayerMovementSpeedSystem))]
     public sealed class SetPlayerMovementSpeedSystem : UpdateSystem
     {
         [Inject] private PlayerStatsService _playerStatsService;

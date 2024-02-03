@@ -15,7 +15,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(PlayerAttackSystem))]
+    [CreateAssetMenu(menuName = "ECS/Systems/Player/" + nameof(PlayerAttackSystem))]
     public class PlayerAttackSystem : UpdateSystem
     {
         [Inject] private IMyLogger _myLogger;

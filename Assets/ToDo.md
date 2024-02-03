@@ -10,7 +10,11 @@ PC only? I don't think that a mobile GPU can handle such 3D
 
 TODO:
 
+Optimizations:
 Adaptive performance
+Narrow camera view angle
+Spawn ~150 enemies MAX
+Fake shadows (https://forum.unity.com/threads/which-is-more-cpu-expensive-blob-shadows-or-the-default-shadows.514830/)
 
 Switch to next wave
 Upgrades between waves

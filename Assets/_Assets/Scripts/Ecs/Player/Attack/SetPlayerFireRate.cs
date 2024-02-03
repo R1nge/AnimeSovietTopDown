@@ -10,7 +10,7 @@ namespace _Assets.Scripts.Ecs.Player.Attack
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(SetPlayerFireRate))]
+    [CreateAssetMenu(menuName = "ECS/Systems/Player/" + nameof(SetPlayerFireRate))]
     public sealed class SetPlayerFireRate : UpdateSystem
     {
         [Inject] private PlayerStatsService _playerStatsService;

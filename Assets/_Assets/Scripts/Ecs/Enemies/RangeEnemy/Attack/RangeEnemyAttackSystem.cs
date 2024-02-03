@@ -14,7 +14,7 @@ namespace _Assets.Scripts.Ecs.Enemies.RangeEnemy.Attack
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(RangeEnemyAttackSystem))]
+    [CreateAssetMenu(menuName = "ECS/Systems/Enemy/" + nameof(RangeEnemyAttackSystem))]
     public sealed class RangeEnemyAttackSystem : UpdateSystem
     {
         [Inject] private ProjectileFactory _projectileFactory;

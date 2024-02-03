@@ -10,7 +10,7 @@ namespace _Assets.Scripts.Ecs.Enemies.Movement
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(EnemyIdleMovementSystem))]
+    [CreateAssetMenu(menuName = "ECS/Systems/Enemy/" + nameof(EnemyIdleMovementSystem))]
     public class EnemyIdleMovementSystem : UpdateSystem
     {
         private Filter _enemy;
