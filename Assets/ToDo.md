@@ -11,13 +11,22 @@ PC only? I don't think that a mobile GPU can handle such 3D
 TODO:
 
 Optimizations:
-Adaptive performance
+Portrait orientation 
+LOD (with impostors)
+Animate only near-by
+Adaptive performance (Working only on A11+)
 Narrow camera view angle
 Spawn ~150 enemies MAX
 Fake shadows (https://forum.unity.com/threads/which-is-more-cpu-expensive-blob-shadows-or-the-default-shadows.514830/)
 
+(
 Switch to next wave
 Upgrades between waves
+OR
+Spawn endlessly, upgrades on level up
+)
+
+Upgrades (pause ecs)
 
 Collect bottles of vodka/Energy drinks to heal
 
@@ -32,8 +41,6 @@ https://github.com/vrm-c/UniVRM
 https://github.com/simplestargame/SimpleURPToonLitOutlineExample
 
 Animations
-
-Enemy Movement (Nav mesh?)
 
 Ref
 https://www.youtube.com/watch?v=gwE0FdWF-SA
