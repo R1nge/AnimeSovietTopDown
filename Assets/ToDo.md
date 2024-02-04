@@ -14,10 +14,10 @@ Optimizations:
 Portrait orientation 
 LOD (with impostors)
 Animate only near-by
-Adaptive performance (Working only on A11+)
 Narrow camera view angle
 Spawn ~150 enemies MAX
 Fake shadows (https://forum.unity.com/threads/which-is-more-cpu-expensive-blob-shadows-or-the-default-shadows.514830/)
+Adaptive performance (Working only on A11+)
 
 (
 Switch to next wave
